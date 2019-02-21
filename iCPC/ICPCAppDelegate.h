@@ -9,8 +9,6 @@
 
 @interface ICPCAppDelegate : NSObject <UIApplicationDelegate>
 
-+(ICPCAppDelegate *)delegate;
-
 @property (nonatomic, strong) UIWindow *window;
 
 @end

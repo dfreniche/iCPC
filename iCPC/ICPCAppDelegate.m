@@ -76,10 +76,4 @@
     return YES;
 }
 
-
-
-+ (ICPCAppDelegate *)delegate{
-	return (ICPCAppDelegate *)[[UIApplication sharedApplication] delegate];
-}
-
 @end
