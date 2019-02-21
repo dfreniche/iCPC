@@ -7,36 +7,12 @@
 
 
 #import "ICPCAppDelegate.h"
-#import "CrocoDSViewController.h"
-
-@interface ICPCAppDelegate() {
-    
-    UIWindow *mainWindow; // Main App Window
-    UINavigationController *navigationController;
-}
-
-@end
 
 @implementation ICPCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:nil];
-    
-    NSLog(@"didFinishLaunchingWithOptions");
-    
-    mainWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    mainWindow.backgroundColor = [UIColor blackColor];
-    
-    crocodsViewController *viewcontroller = [[crocodsViewController alloc] init];
-    
-    mainWindow.rootViewController = viewcontroller;
-    
-    
-    [mainWindow makeKeyAndVisible];
-    
-    //   [mainWindow release];
-    
     
     return YES;
 }
