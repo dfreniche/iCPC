@@ -449,7 +449,6 @@
 				00ED3B9D13E9E3C400AA663A /* Classes */,
 				00ED3BAA13E9E5DC00AA663A /* Resources */,
 				00ED3B7913E9E34A00AA663A /* Supporting Files */,
-				994455E3221EF850007EA9E3 /* Config */,
 			);
 			path = iCPC;
 			sourceTree = "<group>";
@@ -469,17 +468,14 @@
 		00ED3B9D13E9E3C400AA663A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				99BBFE28221F100500E6709D /* Keyboard */,
+				99BBFE27221F0F9800E6709D /* OGLView */,
+				994455E3221EF850007EA9E3 /* Config */,
 				007ACB2813FBD1870034363A /* CrocoDS */,
 				00C9F0CA1403B92700B0F226 /* NavigationController */,
 				009D8256165028FC00FD90B7 /* iCade */,
 				00ED3B8E13E9E34A00AA663A /* CrocoDSViewController.h */,
 				00ED3B8F13E9E34B00AA663A /* CrocoDSViewController.m */,
-				007ACB2413FBD17C0034363A /* KKDrawView.h */,
-				007ACB2513FBD17C0034363A /* KKDrawView.m */,
-				00D26C1D14018AE400855ACC /* MyKeyboard.h */,
-				00D26C1E14018AE400855ACC /* MyKeyboard.m */,
-				00ED3BA013E9E3DA00AA663A /* OGLView.h */,
-				00ED3B9F13E9E3DA00AA663A /* OGLView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -521,6 +517,26 @@
 			);
 			name = Config;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		99BBFE27221F0F9800E6709D /* OGLView */ = {
+			isa = PBXGroup;
+			children = (
+				007ACB2413FBD17C0034363A /* KKDrawView.h */,
+				007ACB2513FBD17C0034363A /* KKDrawView.m */,
+				00ED3BA013E9E3DA00AA663A /* OGLView.h */,
+				00ED3B9F13E9E3DA00AA663A /* OGLView.m */,
+			);
+			path = OGLView;
+			sourceTree = "<group>";
+		};
+		99BBFE28221F100500E6709D /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				00D26C1D14018AE400855ACC /* MyKeyboard.h */,
+				00D26C1E14018AE400855ACC /* MyKeyboard.m */,
+			);
+			path = Keyboard;
 			sourceTree = "<group>";
 		};
 		99EEF76E221ED70F00339CA9 /* iCPCTests */ = {
