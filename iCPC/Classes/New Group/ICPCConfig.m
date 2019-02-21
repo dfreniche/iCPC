@@ -7,16 +7,11 @@
 
 #import "ICPCConfig.h"
 
-@interface ICPCConfig() {
-
-bool _useIcade;
-bool _useFling;
-bool _useExternalKeyboard;
-
-}
-@end
-
 @implementation ICPCConfig
+
+@synthesize useExternalKeyboard = _useExternalKeyboard;
+@synthesize useFling = _useFling;
+@synthesize useIcade = _useIcade;
 
 + (instancetype)sharedInstance {
     
@@ -32,48 +27,39 @@ bool _useExternalKeyboard;
 }
 
 -(instancetype)initUniqueInstance {
+    
     return [super init];
 }
 
 - (void)loadSettings {
     
-    _useExternalKeyboard = [[NSUserDefaults standardUserDefaults] boolForKey:@"useExternalKeyboard"];
-    _useFling= [[NSUserDefaults standardUserDefaults] boolForKey:@"useFling"];
-    _useIcade = [[NSUserDefaults standardUserDefaults] boolForKey:@"useIcade"];
-    
-    //    int timeout=[[NSUserDefaults standardUserDefaults] integerForKey:@"timeout"];
-    
-    
+    self.useExternalKeyboard = [[NSUserDefaults standardUserDefaults] boolForKey:@"useExternalKeyboard"];
+    self.useFling = [[NSUserDefaults standardUserDefaults] boolForKey:@"useFling"];
+    self.useIcade = [[NSUserDefaults standardUserDefaults] boolForKey:@"useIcade"];
 }
 
 - (void)setUseExternalKeyboard:(bool)useExternalKeyboard {
-    [[NSUserDefaults standardUserDefaults] setBool:useExternalKeyboard forKey:@"useExternalKeyboard"];
-    _useExternalKeyboard=useExternalKeyboard;
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    _useExternalKeyboard = useExternalKeyboard;
+    [self saveSetting:useExternalKeyboard forKey:@"useExternalKeyboard"];
 }
 
 - (void)setUseFling:(bool)useFling {
-    [[NSUserDefaults standardUserDefaults] setBool:useFling forKey:@"useFling"];
-    _useFling=useFling;
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    _useFling = useFling;
+    [self saveSetting:useFling forKey:@"useIcade"];
 }
 
 - (void)setUseIcade:(bool)useIcade {
-    [[NSUserDefaults standardUserDefaults] setBool:useIcade forKey:@"useIcade"];
-    _useIcade=useIcade;
+    
+    _useIcade = useIcade;
+    [self saveSetting:useIcade forKey:@"useIcade"];
+}
+
+- (void)saveSetting:(bool)value forKey:(NSString *)key {
+    
+    [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
-- (bool)useExternalKeyboard {
-    return _useExternalKeyboard;
-}
-
-- (bool)useFling {
-    return _useFling;
-}
-
-- (bool)useIcade {
-    return _useIcade;
 }
 
 @end
