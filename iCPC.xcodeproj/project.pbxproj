@@ -89,6 +89,7 @@
 		994455E2221EF846007EA9E3 /* ICPCConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 994455E1221EF846007EA9E3 /* ICPCConfig.m */; };
 		99AC3A37221ECAB20042A541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A36221ECAB20042A541 /* Images.xcassets */; };
 		99BBFE2B221F136800E6709D /* iCPC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BBFE2A221F136800E6709D /* iCPC.storyboard */; };
+		99BBFE30221F1EDC00E6709D /* ICPCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BBFE2F221F1EDC00E6709D /* ICPCFileManager.m */; };
 		99EEF766221ECEA100339CA9 /* 1943_Commando_Green_Beret.dsk in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A38221ECDFB0042A541 /* 1943_Commando_Green_Beret.dsk */; };
 		99EEF768221ED0BA00339CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EEF767221ED0BA00339CA9 /* LaunchScreen.storyboard */; };
 		99EEF770221ED70F00339CA9 /* iCPCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EEF76F221ED70F00339CA9 /* iCPCTests.m */; };
@@ -234,6 +235,8 @@
 		99AC3A36221ECAB20042A541 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		99AC3A38221ECDFB0042A541 /* 1943_Commando_Green_Beret.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1943_Commando_Green_Beret.dsk; sourceTree = "<group>"; };
 		99BBFE2A221F136800E6709D /* iCPC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iCPC.storyboard; sourceTree = "<group>"; };
+		99BBFE2E221F1EDC00E6709D /* ICPCFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCFileManager.h; sourceTree = "<group>"; };
+		99BBFE2F221F1EDC00E6709D /* ICPCFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCFileManager.m; sourceTree = "<group>"; };
 		99EEF767221ED0BA00339CA9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99EEF76D221ED70F00339CA9 /* iCPCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCPCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EEF76F221ED70F00339CA9 /* iCPCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCPCTests.m; sourceTree = "<group>"; };
@@ -471,6 +474,7 @@
 		00ED3B9D13E9E3C400AA663A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				99BBFE2D221F1EBF00E6709D /* Files */,
 				99BBFE28221F100500E6709D /* Keyboard */,
 				99BBFE27221F0F9800E6709D /* OGLView */,
 				994455E3221EF850007EA9E3 /* Config */,
@@ -550,6 +554,15 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		99BBFE2D221F1EBF00E6709D /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				99BBFE2E221F1EDC00E6709D /* ICPCFileManager.h */,
+				99BBFE2F221F1EDC00E6709D /* ICPCFileManager.m */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
 		99EEF76E221ED70F00339CA9 /* iCPCTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,7 +582,8 @@
 				00ED3B6613E9E34A00AA663A /* Sources */,
 				00ED3B6713E9E34A00AA663A /* Frameworks */,
 				00ED3B6813E9E34A00AA663A /* Resources */,
-				00FC35B7179C550900E815AB /* ShellScript */,
+				00FC35B7179C550900E815AB /* Increment build number */,
+				99BBFE2C221F1C7300E6709D /* Colloc */,
 			);
 			buildRules = (
 			);
@@ -744,6 +758,7 @@
 				007ACB9F13FBE32D0034363A /* zutil.c in Sources */,
 				00D26C1F14018AE500855ACC /* MyKeyboard.m in Sources */,
 				994455E2221EF846007EA9E3 /* ICPCConfig.m in Sources */,
+				99BBFE30221F1EDC00E6709D /* ICPCFileManager.m in Sources */,
 				00C9F0BC14038B2700B0F226 /* microlib.c in Sources */,
 				00C9F0C51403A17400B0F226 /* emu2149.c in Sources */,
 				00C9F0E21403BBB400B0F226 /* AboutViewController.m in Sources */,

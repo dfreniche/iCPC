@@ -23,7 +23,7 @@
 #import "MyCatalog.h"
 
 #import <GameController/GameController.h>
-
+#import "ICPCFileManager.h"
     
 #define RAYON 20
 
@@ -45,17 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Copy all DSK to Documents directory
-    
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[[NSBundle mainBundle] bundlePath] error:nil];
-    NSArray *dsks = [files filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH[cd] '.dsk'"]];
-    
-    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    
-    for (NSString *dsk in dsks) {
-        [[NSFileManager defaultManager] copyItemAtPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:dsk] toPath:[NSString stringWithFormat:@"%@/%@",documentsDirectory,dsk] error:nil];
-    }
-    
+    [ICPCFileManager copyAllDSKFilesToDocumentDirectory];
     
     portraitBounds = [[UIScreen mainScreen] bounds];
     
