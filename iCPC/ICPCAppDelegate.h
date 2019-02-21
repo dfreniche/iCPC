@@ -11,5 +11,6 @@
 
 +(ICPCAppDelegate *)delegate;
 
+@property (nonatomic, strong) UIWindow *window;
 
 @end

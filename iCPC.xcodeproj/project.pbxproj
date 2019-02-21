@@ -88,6 +88,7 @@
 		1338B155183B6922008653A7 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338B154183B6922008653A7 /* GameController.framework */; };
 		994455E2221EF846007EA9E3 /* ICPCConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 994455E1221EF846007EA9E3 /* ICPCConfig.m */; };
 		99AC3A37221ECAB20042A541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A36221ECAB20042A541 /* Images.xcassets */; };
+		99BBFE2B221F136800E6709D /* iCPC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BBFE2A221F136800E6709D /* iCPC.storyboard */; };
 		99EEF766221ECEA100339CA9 /* 1943_Commando_Green_Beret.dsk in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A38221ECDFB0042A541 /* 1943_Commando_Green_Beret.dsk */; };
 		99EEF768221ED0BA00339CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EEF767221ED0BA00339CA9 /* LaunchScreen.storyboard */; };
 		99EEF770221ED70F00339CA9 /* iCPCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EEF76F221ED70F00339CA9 /* iCPCTests.m */; };
@@ -232,6 +233,7 @@
 		994455E1221EF846007EA9E3 /* ICPCConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCConfig.m; sourceTree = "<group>"; };
 		99AC3A36221ECAB20042A541 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		99AC3A38221ECDFB0042A541 /* 1943_Commando_Green_Beret.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1943_Commando_Green_Beret.dsk; sourceTree = "<group>"; };
+		99BBFE2A221F136800E6709D /* iCPC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iCPC.storyboard; sourceTree = "<group>"; };
 		99EEF767221ED0BA00339CA9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99EEF76D221ED70F00339CA9 /* iCPCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCPCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EEF76F221ED70F00339CA9 /* iCPCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCPCTests.m; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				00ED3B8113E9E34A00AA663A /* ICPCAppDelegate.h */,
 				00ED3B8213E9E34A00AA663A /* ICPCAppDelegate.m */,
 				00ED3B9D13E9E3C400AA663A /* Classes */,
+				99BBFE29221F134B00E6709D /* Storyboards */,
 				00ED3BAA13E9E5DC00AA663A /* Resources */,
 				00ED3B7913E9E34A00AA663A /* Supporting Files */,
 			);
@@ -537,6 +540,14 @@
 				00D26C1E14018AE400855ACC /* MyKeyboard.m */,
 			);
 			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		99BBFE29221F134B00E6709D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				99BBFE2A221F136800E6709D /* iCPC.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		99EEF76E221ED70F00339CA9 /* iCPCTests */ = {
@@ -641,6 +652,7 @@
 				00C9F0B114029CB800B0F226 /* key_b.png in Resources */,
 				99EEF768221ED0BA00339CA9 /* LaunchScreen.storyboard in Resources */,
 				00C9F0B214029CB800B0F226 /* key_down.png in Resources */,
+				99BBFE2B221F136800E6709D /* iCPC.storyboard in Resources */,
 				00C9F0B314029CB800B0F226 /* key_left.png in Resources */,
 				99AC3A37221ECAB20042A541 /* Images.xcassets in Resources */,
 				00C9F0B414029CB800B0F226 /* key_right.png in Resources */,
