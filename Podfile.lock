@@ -1,0 +1,21 @@
+PODS:
+  - Colloc (1.0.4)
+
+DEPENDENCIES:
+  - Colloc (from `https://github.com/mobilejazz/Colloc.git`)
+
+EXTERNAL SOURCES:
+  Colloc:
+    :git: https://github.com/mobilejazz/Colloc.git
+
+CHECKOUT OPTIONS:
+  Colloc:
+    :commit: 585afda86ad11dbe400a40deb5e99fbdad053c97
+    :git: https://github.com/mobilejazz/Colloc.git
+
+SPEC CHECKSUMS:
+  Colloc: 198ddb9be267fe520980ddc0987a94672d924277
+
+PODFILE CHECKSUM: caabdaa85f0d84e9aa52dad63098a61c2d2d2029
+
+COCOAPODS: 1.5.3
