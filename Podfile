@@ -7,7 +7,7 @@ project 'iCPC.xcodeproj'
 
 def common_pods
     
-    pod 'Colloc', :git => 'https://github.com/mobilejazz/Colloc.git'
+    pod 'Colloc'
 
 end #common pods
 
