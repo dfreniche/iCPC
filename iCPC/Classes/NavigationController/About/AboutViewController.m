@@ -19,7 +19,7 @@
         // Create toolbar (to make sure that we can access it at any time)
 		_toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
 
-        self.title = NSLocalizedString(@"About Crocods", @"Series title");
+        self.title = ls_about;
         self.tabBarItem.image = [UIImage imageNamed:@"about.png"];   
     }
     return self;

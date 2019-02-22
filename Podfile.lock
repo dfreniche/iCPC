@@ -1,0 +1,16 @@
+PODS:
+  - Colloc (1.0.4)
+
+DEPENDENCIES:
+  - Colloc
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Colloc
+
+SPEC CHECKSUMS:
+  Colloc: 198ddb9be267fe520980ddc0987a94672d924277
+
+PODFILE CHECKSUM: 812bff8f4d969e07b74d71db953298d11bc660ee
+
+COCOAPODS: 1.5.3
