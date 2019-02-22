@@ -20,3 +20,5 @@
 
 #import <objc/objc.h>
 #define OBJC_BOOL_IS_CHAR 1
+
+#import "Localization.h"
