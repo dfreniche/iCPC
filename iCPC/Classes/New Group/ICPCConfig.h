@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) bool useIcade;
 @property (nonatomic, assign) bool useFling;
 @property (nonatomic, assign) bool useExternalKeyboard;
+@property (nonatomic, assign) bool dskDemosAlreadyCopied;
 
 @end
 

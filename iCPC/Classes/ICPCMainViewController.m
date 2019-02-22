@@ -25,7 +25,6 @@
 #import "MyCatalog.h"
 
 #import <GameController/GameController.h>
-#import "ICPCFileManager.h"
     
 #define RAYON 20
 
@@ -74,7 +73,6 @@ GCController *myController;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [ICPCFileManager copyAllDSKFilesToDocumentDirectory];
     
     portraitBounds = [[UIScreen mainScreen] bounds];
     

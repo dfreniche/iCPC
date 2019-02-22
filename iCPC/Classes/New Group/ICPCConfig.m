@@ -12,6 +12,7 @@
 @synthesize useExternalKeyboard = _useExternalKeyboard;
 @synthesize useFling = _useFling;
 @synthesize useIcade = _useIcade;
+@synthesize dskDemosAlreadyCopied = _dskDemosAlreadyCopied;
 
 + (instancetype)sharedInstance {
     
@@ -36,6 +37,7 @@
     self.useExternalKeyboard = [[NSUserDefaults standardUserDefaults] boolForKey:@"useExternalKeyboard"];
     self.useFling = [[NSUserDefaults standardUserDefaults] boolForKey:@"useFling"];
     self.useIcade = [[NSUserDefaults standardUserDefaults] boolForKey:@"useIcade"];
+    self.dskDemosAlreadyCopied = [[NSUserDefaults standardUserDefaults] boolForKey:@"dskDemosAlreadyCopied"];
 }
 
 - (void)setUseExternalKeyboard:(bool)useExternalKeyboard {
@@ -54,6 +56,11 @@
     
     _useIcade = useIcade;
     [self saveSetting:useIcade forKey:@"useIcade"];
+}
+    
+- (void)setDskDemosAlreadyCopied:(bool)dskDemosAlreadyCopied {
+    _dskDemosAlreadyCopied = dskDemosAlreadyCopied;
+    [self saveSetting:dskDemosAlreadyCopied forKey:@"dskDemosAlreadyCopied"];
 }
 
 - (void)saveSetting:(bool)value forKey:(NSString *)key {

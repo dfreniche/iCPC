@@ -7,12 +7,15 @@
 
 
 #import "ICPCAppDelegate.h"
+#import "ICPCFileManager.h"
 
 @implementation ICPCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:nil];
+    
+    [ICPCFileManager copyAllDSKFilesToDocumentDirectory];
     
     return YES;
 }
