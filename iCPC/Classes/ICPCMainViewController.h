@@ -8,19 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "OGLView.h"
-#import "MyKeyboard.h"
-
-@class CADisplayLink;
-
-@class GCController;
-
-@interface crocodsViewController : UIViewController {
-    
-}
-
-
-
-
+@interface ICPCMainViewController : UIViewController
 
 @end

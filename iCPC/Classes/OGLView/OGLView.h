@@ -8,7 +8,7 @@
 
 #import "iCadeReaderView.h"
 
-@class crocodsViewController;
+@class ICPCMainViewController;
 
 struct moment {
 	int temps;
@@ -19,12 +19,12 @@ struct moment {
 @interface OGLView : KKDrawView <iCadeEventDelegate>
 {
     
-    crocodsViewController *__weak parent;
+    ICPCMainViewController *__weak parent;
     
     int bx,by;
 }
 
-@property (nonatomic, weak) crocodsViewController *parent;
+@property (nonatomic, weak) ICPCMainViewController *parent;
 
 
 - (int)CreateSurfaces:(id)i;

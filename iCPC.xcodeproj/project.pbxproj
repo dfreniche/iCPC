@@ -91,7 +91,7 @@
 		00ED3B7D13E9E34A00AA663A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00ED3B7B13E9E34A00AA663A /* InfoPlist.strings */; };
 		00ED3B7F13E9E34A00AA663A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED3B7E13E9E34A00AA663A /* main.m */; };
 		00ED3B8313E9E34A00AA663A /* ICPCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED3B8213E9E34A00AA663A /* ICPCAppDelegate.m */; };
-		00ED3B9013E9E34B00AA663A /* CrocoDSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED3B8F13E9E34B00AA663A /* CrocoDSViewController.m */; };
+		00ED3B9013E9E34B00AA663A /* ICPCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED3B8F13E9E34B00AA663A /* ICPCMainViewController.m */; };
 		00ED3BA113E9E3DA00AA663A /* OGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ED3B9F13E9E3DA00AA663A /* OGLView.m */; };
 		00ED3BB013E9E5DC00AA663A /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 00ED3BAB13E9E5DC00AA663A /* background.png */; };
 		00ED3BB213E9E5DC00AA663A /* SimpleFont.png in Resources */ = {isa = PBXBuildFile; fileRef = 00ED3BAD13E9E5DC00AA663A /* SimpleFont.png */; };
@@ -104,6 +104,7 @@
 		994455E2221EF846007EA9E3 /* ICPCConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 994455E1221EF846007EA9E3 /* ICPCConfig.m */; };
 		99445FCA22200D3300B89C36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99445FC422200D3300B89C36 /* Localizable.strings */; };
 		99445FCB22200D3300B89C36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99445FC722200D3300B89C36 /* Localizable.strings */; };
+		99445FCE2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 99445FCD2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m */; };
 		99AC3A37221ECAB20042A541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A36221ECAB20042A541 /* Images.xcassets */; };
 		99BBFE2B221F136800E6709D /* iCPC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BBFE2A221F136800E6709D /* iCPC.storyboard */; };
 		99BBFE30221F1EDC00E6709D /* ICPCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BBFE2F221F1EDC00E6709D /* ICPCFileManager.m */; };
@@ -237,8 +238,8 @@
 		00ED3B8013E9E34A00AA663A /* iCPC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iCPC-Prefix.pch"; sourceTree = "<group>"; };
 		00ED3B8113E9E34A00AA663A /* ICPCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCAppDelegate.h; sourceTree = "<group>"; };
 		00ED3B8213E9E34A00AA663A /* ICPCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCAppDelegate.m; sourceTree = "<group>"; };
-		00ED3B8E13E9E34A00AA663A /* CrocoDSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrocoDSViewController.h; sourceTree = "<group>"; };
-		00ED3B8F13E9E34B00AA663A /* CrocoDSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrocoDSViewController.m; sourceTree = "<group>"; };
+		00ED3B8E13E9E34A00AA663A /* ICPCMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCMainViewController.h; sourceTree = "<group>"; };
+		00ED3B8F13E9E34B00AA663A /* ICPCMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCMainViewController.m; sourceTree = "<group>"; };
 		00ED3B9F13E9E3DA00AA663A /* OGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OGLView.m; sourceTree = "<group>"; };
 		00ED3BA013E9E3DA00AA663A /* OGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OGLView.h; sourceTree = "<group>"; };
 		00ED3BAB13E9E5DC00AA663A /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -256,6 +257,8 @@
 		99445FC522200D3300B89C36 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		99445FC822200D3300B89C36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		99445FC922200D3300B89C36 /* Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Localization.h; sourceTree = "<group>"; };
+		99445FCC2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ICPCMainViewController+ExternalKeyboard.h"; sourceTree = "<group>"; };
+		99445FCD2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ICPCMainViewController+ExternalKeyboard.m"; sourceTree = "<group>"; };
 		99AC3A36221ECAB20042A541 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		99AC3A38221ECDFB0042A541 /* 1943_Commando_Green_Beret.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1943_Commando_Green_Beret.dsk; sourceTree = "<group>"; };
 		99BBFE2A221F136800E6709D /* iCPC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iCPC.storyboard; sourceTree = "<group>"; };
@@ -513,8 +516,8 @@
 				007ACB2813FBD1870034363A /* CrocoDS */,
 				00C9F0CA1403B92700B0F226 /* NavigationController */,
 				009D8256165028FC00FD90B7 /* iCade */,
-				00ED3B8E13E9E34A00AA663A /* CrocoDSViewController.h */,
-				00ED3B8F13E9E34B00AA663A /* CrocoDSViewController.m */,
+				00ED3B8E13E9E34A00AA663A /* ICPCMainViewController.h */,
+				00ED3B8F13E9E34B00AA663A /* ICPCMainViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -601,6 +604,8 @@
 			children = (
 				00D26C1D14018AE400855ACC /* MyKeyboard.h */,
 				00D26C1E14018AE400855ACC /* MyKeyboard.m */,
+				99445FCC2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.h */,
+				99445FCD2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -870,7 +875,7 @@
 			files = (
 				00ED3B7F13E9E34A00AA663A /* main.m in Sources */,
 				00ED3B8313E9E34A00AA663A /* ICPCAppDelegate.m in Sources */,
-				00ED3B9013E9E34B00AA663A /* CrocoDSViewController.m in Sources */,
+				00ED3B9013E9E34B00AA663A /* ICPCMainViewController.m in Sources */,
 				00ED3BA113E9E3DA00AA663A /* OGLView.m in Sources */,
 				0085BC7213F8F2A0002B438B /* ConfigViewController.m in Sources */,
 				0085BC7413F8F2A0002B438B /* KSelectionListViewController.m in Sources */,
@@ -906,6 +911,7 @@
 				00C9F0C51403A17400B0F226 /* emu2149.c in Sources */,
 				00C9F0E21403BBB400B0F226 /* AboutViewController.m in Sources */,
 				00C9F0F31403CD0C00B0F226 /* MyCatalog.m in Sources */,
+				99445FCE2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m in Sources */,
 				009D82591650292400FD90B7 /* iCadeReaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

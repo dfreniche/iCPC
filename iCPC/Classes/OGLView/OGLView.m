@@ -6,7 +6,7 @@
 #include <OpenGLES/ES1/glext.h>
 
 #include <string.h>
-#include "CrocoDSViewController.h"
+#include "ICPCMainViewController.h"
 #include "ICPCAppDelegate.h"
 #import "ICPCConfig.h"
 

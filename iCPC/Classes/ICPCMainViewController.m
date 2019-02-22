@@ -6,11 +6,13 @@
 //
 
 #import "ICPCAppDelegate.h"
-#import "CrocoDSViewController.h"
+#import "ICPCMainViewController.h"
 #include <QuartzCore/CADisplayLink.h>
 #import <OpenGLES/EAGLDrawable.h>
 #import <OpenGLES/ES1/glext.h>
 #import "MyKeyboard.h"
+#import "OGLView/OGLView.h"
+#import "Keyboard/ICPCMainViewController+ExternalKeyboard.h"
 
 #import "nds.h"
 #import "upd.h"
@@ -27,7 +29,7 @@
     
 #define RAYON 20
 
-@interface crocodsViewController () {
+@interface ICPCMainViewController () <ICPCExternalKeyboardSupportable> {
 
 OGLView *m_oglView;
 CADisplayLink* m_displayLink;
@@ -54,7 +56,7 @@ GCController *myController;
 
 @end
 
-@implementation crocodsViewController
+@implementation ICPCMainViewController
 
 
 - (id)init {
@@ -161,7 +163,20 @@ GCController *myController;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:GCControllerDidConnectNotification object:nil];
 
 }
-
+    
+- (void)externalKeyPressed:(UIKeyCommand *)key {
+    if ([key.input isEqualToString:UIKeyInputLeftArrow]) {
+        [self keypadKeyPressed:KEY_LEFT];
+    }
+    else if ([key.input isEqualToString:UIKeyInputRightArrow]) {
+        [self keypadKeyPressed:KEY_RIGHT];
+    }
+}
+    
+- (void)keypadKeyPressed:(int)keypadBits {
+    ipc.keys_pressed |= keypadBits;
+}
+    
 - (void)setupControllers {
     for (GCController *controller in [GCController controllers]) {
         myController = controller;
