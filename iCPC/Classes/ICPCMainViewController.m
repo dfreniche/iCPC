@@ -13,6 +13,7 @@
 #import "MyKeyboard.h"
 #import "OGLView/OGLView.h"
 #import "Keyboard/ICPCMainViewController+ExternalKeyboard.h"
+#import "ICPCMainViewController+ICPCCatalogFileSelected.h"
 
 #import "nds.h"
 #import "upd.h"
@@ -57,22 +58,9 @@ GCController *myController;
 
 @implementation ICPCMainViewController
 
-
-- (id)init {
-    if (self =[super init]) {
-        self.title = NSLocalizedString(@"About", @"Series title");
-        self.tabBarItem.image = [UIImage imageNamed:@"145-persondot.png"];
-    }
-    
-    NSLog(@"init");
-    
-    return self;
-}
-
-
 - (void)viewDidLoad {
-    [super viewDidLoad];
     
+    [super viewDidLoad];
     
     portraitBounds = [[UIScreen mainScreen] bounds];
     
@@ -148,11 +136,7 @@ GCController *myController;
     key_start.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
     [m_oglView addSubview:key_start];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupControllers) name:GCControllerDidConnectNotification object:nil];
-    
-    [GCController startWirelessControllerDiscoveryWithCompletionHandler:nil];
-    
-    [self setupControllers];
+    [self setupGameControllers];
 }
 
 - (void)viewDidUnload {
@@ -160,6 +144,12 @@ GCController *myController;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:GCControllerDidConnectNotification object:nil];
 
+}
+    
+- (void)setupGameControllers {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFoundController) name:GCControllerDidConnectNotification object:nil];
+    
+    [GCController startWirelessControllerDiscoveryWithCompletionHandler:nil];
 }
     
 - (void)externalKeyPressed:(UIKeyCommand *)key {
@@ -175,7 +165,7 @@ GCController *myController;
     ipc.keys_pressed |= keypadBits;
 }
     
-- (void)setupControllers {
+- (void)setupFoundController {
     for (GCController *controller in [GCController controllers]) {
         myController = controller;
         
@@ -304,26 +294,6 @@ GCController *myController;
     
     [self presentModalViewController:myNavigationController animated:YES];
     
-    
-    
-    /*
-     
-     ConfigViewController *settingsViewController = [[ConfigViewController alloc] initWithStyle:UITableViewStyleGrouped];
-     
-     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissSettingsView)];
-     settingsViewController.navigationItem.rightBarButtonItem = doneButton;
-     
-     [doneButton release];
-     
-     UINavigationController *settingsNavController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
-     
-     settingsNavController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-     
-     [self presentModalViewController:settingsNavController animated:YES];
-     
-     [settingsViewController release];
-     [settingsNavController release];
-     */
 }
 
 
@@ -544,51 +514,38 @@ GCController *myController;
 
 - (BOOL)shouldAutorotate {
     
-    NSLog(@"shouldAutorotate");
-        
     UIInterfaceOrientation interfaceOrientation = [[UIDevice currentDevice] orientation];
     
-    if (interfaceOrientation!=UIDeviceOrientationUnknown) {
+    if ( interfaceOrientation == UIDeviceOrientationUnknown ) {
+        return false;
+    }
+    
+    if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
+        mykeyboard.hidden=false;
         
-        switch(interfaceOrientation) {
-            case UIDeviceOrientationUnknown: NSLog(@"Unknown"); break;
-            case UIDeviceOrientationPortrait: NSLog(@"Portrait"); break;            // Device oriented vertically, home button on the bottom
-            case UIDeviceOrientationPortraitUpsideDown: NSLog(@"Portrait Upside Down"); break;  // Device oriented vertically, home button on the top
-            case UIDeviceOrientationLandscapeLeft: NSLog(@"Landscape Left"); break;       // Device oriented horizontally, home button on the right
-            case UIDeviceOrientationLandscapeRight: NSLog(@"Landscape Right"); break;     // Device oriented horizontally, home button on the left
-            case UIDeviceOrientationFaceUp: NSLog(@"Face Up"); break;              // Device oriented flat, face up
-            case UIDeviceOrientationFaceDown: NSLog(@"Face Down"); break;
-        }
+        m_oglView.frame = CGRectMake(0, 0,  portraitBounds.size.width,  portraitBounds.size.width * 0.625);
+        m_oglView.autoresizingMask = UIViewAutoresizingNone;
         
-        if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-            mykeyboard.hidden=false;
-            
-            m_oglView.frame=CGRectMake(0, 0,  portraitBounds.size.width,  portraitBounds.size.width * 0.625);
-            m_oglView.autoresizingMask = UIViewAutoresizingNone;
-            
-        } else {
-            NSComparisonResult order = [[UIDevice currentDevice].systemVersion compare: @"5.0" options: NSNumericSearch];
-            if (order == NSOrderedSame || order == NSOrderedDescending) {
-                m_oglView.frame=CGRectMake(0, 0,  self.view.frame.size.height, self.view.frame.size.width);         // On iOS5 only
-            } else {
-                if (self.view.frame.size.width>self.view.frame.size.height) {
-                    m_oglView.frame=CGRectMake(0, 0,  self.view.frame.size.height, self.view.frame.size.width);
-                } else {
-                    m_oglView.frame=CGRectMake(0, 0,  self.view.frame.size.width, self.view.frame.size.height);
-                }
-            }
-            m_oglView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-            [m_oglView sizeToFit];
-            mykeyboard.hidden=true;
-        }
+    } else {    // device in Landscape
+        mykeyboard.hidden=true;
+
+        m_oglView.frame = CGRectMake(0, 0,  self.view.frame.size.height, self.view.frame.size.width);
         
+        m_oglView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [m_oglView sizeToFit];
     }
     
     return true;
 }
-
-
-
-
+    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"ShowFilesSegue"]) {
+        
+        UINavigationController *nav = (UINavigationController *)[segue destinationViewController];
+        MyCatalog *catalogViewController = (MyCatalog *)nav.topViewController;
+        catalogViewController.delegate = self;
+    }
+}
 
 @end
