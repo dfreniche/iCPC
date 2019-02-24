@@ -6,6 +6,12 @@
 //  Copyright 2011 Kyuran. All rights reserved.
 //
 
+@protocol ICPCCatalogFileSelectable <NSObject>
+
+    - (void)fileSelected:(NSString *)fileName shouldAutoStart:(BOOL)autoStart shouldReboot:(BOOL)reboot;
+
+@end
+
 @interface MyCatalog : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate> {
     NSMutableArray *kfiles;
     
@@ -19,8 +25,6 @@
     
 	UISearchDisplayController *searchDisplayController;
     
-    UIResponder *delegate;
-    
     bool autoStart, rebootWhenStart;
 }
 
@@ -28,7 +32,7 @@
 @property (nonatomic, strong) NSMutableArray * _entries;
 @property (nonatomic, strong) NSMutableArray * _qualifiedEntries;
 @property (nonatomic, strong) UISearchDisplayController *searchDisplayController;
-@property (nonatomic, strong) UIResponder *delegate;
+@property (nonatomic, strong) id <ICPCCatalogFileSelectable> delegate;
 
 -(void)refreshData:(NSNotification *)notification;
 -(void)RebuildIndex:(NSMutableArray *)_entries0;

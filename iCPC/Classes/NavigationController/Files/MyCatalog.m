@@ -23,19 +23,12 @@
 @synthesize _entries;
 @synthesize _qualifiedEntries;
 @synthesize searchDisplayController;
-@synthesize delegate;
-
-- (id)init {
-    if (self =[super initWithStyle:UITableViewStylePlain]) {
-        self.title = NSLocalizedString(@"Files", @"Files");
-        self.tabBarItem.image = [UIImage imageNamed:@"files.png"];
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData:) name:@"EntryUpdated" object:nil];	
+	
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshData:) name:@"EntryUpdated" object:nil];
     
 	UISearchBar * searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
 	searchBar.delegate = self;
@@ -47,8 +40,7 @@
 	[searchDisplayController setSearchResultsDataSource:self];
 	
 	
-	self.tableView.scrollEnabled = YES;
-    
+//    self.tableView.scrollEnabled = YES;
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
    
@@ -134,10 +126,12 @@
 }
 
 
--(void)cancel:(id)sender {
-    [self.delegate performSelector:@selector(dismissSettingsView)];
-
- //   [delegate pagelistPickerControllerDidCancel:self];
+- (void)cancel:(id)sender {
+    [self closeViewControllerWithCompletion:nil];
+}
+    
+- (void)closeViewControllerWithCompletion:(void (^ __nullable)(void))completion {
+    [self.navigationController dismissViewControllerAnimated:true completion:completion];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -162,26 +156,10 @@
     [super viewWillAppear:animated];
 }
 
-
-
-- (void)dealloc {
-    
-    NSLog(@"dealoc pagelistcontroller");
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (void)viewDidUnload {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	self.searchDisplayController = nil;
 }
-
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -304,7 +282,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    int row;
+    unsigned long row;
     
     if ([indexLetters count]==0) {
         return;
@@ -318,30 +296,9 @@
     
     NSString *fileName=[_currentEntries objectAtIndex:row];
    
-    NSString* extension = [[fileName pathExtension] lowercaseString];
-    if ([extension isEqualToString:@"sna"]) {
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *fullFile = [(NSString *)[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
-        
-        NSData *rom=[[NSData alloc] initWithContentsOfFile:fullFile];     
-        LireSnapshotMem((u8*)[rom bytes]);
-    }
-    if ([extension isEqualToString:@"dsk"]) {
-         char autofile[256];
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *fullFile = [(NSString *)[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
-
-         NSData *dsk=[[NSData alloc] initWithContentsOfFile:fullFile]; 
-         LireDiskMem((u8*)[dsk bytes], [dsk length], autofile);
-        
-         if ((autoStart) && (autofile[0]!=0)) {
-         char buffer[256];
-         sprintf(buffer,"run\"%s\n", autofile);
-         AutoType_SetString(buffer, rebootWhenStart);
-         }
-    }
-    [self.delegate performSelector:@selector(dismissSettingsView)];
+    [self closeViewControllerWithCompletion:^{
+         [self.delegate fileSelected:fileName shouldAutoStart:autoStart shouldReboot:rebootWhenStart];
+    }];
 }
 
 
