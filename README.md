@@ -36,7 +36,7 @@ This Project is based upon the following work:
 - GFX (keyboard): Copyright 2013 Jean-Jacques Cortes
 
 
-
+- GFX (3 inc CF2 disk) Inkwina: https://es.m.wikipedia.org/wiki/Archivo:AMSoft_Compact_Floppy_Disc_20071208.jpg
 
 
 
