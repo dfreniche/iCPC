@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kaY-gr-K8V">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,15 +15,123 @@
             <objects>
                 <viewController id="kaY-gr-K8V" customClass="ICPCMainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KqN-cd-N3D">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8t-57-yXZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="314"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="314" id="uEs-oz-mo0"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uEs-oz-mo0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="uEs-oz-mo0"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBG-Fa-sZq" customClass="MyKeyboard">
+                                <rect key="frame" x="0.0" y="395" width="375" height="272"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pkG-jZ-zFp">
+                                <rect key="frame" x="0.0" y="333" width="375" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByI-kR-SNS">
+                                        <rect key="frame" x="11" y="0.0" width="52" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="AMSOFT CF2"/>
+                                        <connections>
+                                            <segue destination="Ikc-ns-5Iz" kind="presentation" identifier="ShowFilesSegue" modalTransitionStyle="coverVertical" id="xrN-XY-A9E"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="m8t-57-yXZ" firstAttribute="top" secondItem="rTP-5g-DHo" secondAttribute="top" id="1qU-vV-Xfx"/>
+                            <constraint firstItem="m8t-57-yXZ" firstAttribute="leading" secondItem="rTP-5g-DHo" secondAttribute="leading" id="OaG-eC-t2q"/>
+                            <constraint firstItem="rTP-5g-DHo" firstAttribute="trailing" secondItem="m8t-57-yXZ" secondAttribute="trailing" id="tD0-gA-ygY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rTP-5g-DHo"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1qU-vV-Xfx"/>
+                                <exclude reference="OaG-eC-t2q"/>
+                                <exclude reference="tD0-gA-ygY"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="1qU-vV-Xfx"/>
+                                <include reference="OaG-eC-t2q"/>
+                                <include reference="tD0-gA-ygY"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSf-xw-jzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-502" y="117"/>
+            <point key="canvasLocation" x="-504.80000000000001" y="115.59220389805098"/>
+        </scene>
+        <!--My Catalog-->
+        <scene sceneID="Clz-zA-YPP">
+            <objects>
+                <tableViewController id="azW-5B-g7M" customClass="MyCatalog" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mhO-WH-MSJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jJl-ON-Z0w">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jJl-ON-Z0w" id="6dN-cH-BmZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="azW-5B-g7M" id="GF9-OS-LhE"/>
+                            <outlet property="delegate" destination="azW-5B-g7M" id="o3V-KI-Lf7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="MYY-Xn-MGC"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guA-eE-9xp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1322.4000000000001" y="42.728635682158924"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="L0G-cR-QN7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ikc-ns-5Iz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wcx-8Q-UzZ">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="azW-5B-g7M" kind="relationship" relationship="rootViewController" id="R77-4K-bf9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="shT-aE-QXy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="383.19999999999999" y="42.728635682158924"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AMSOFT CF2" width="320" height="400"/>
+    </resources>
 </document>
