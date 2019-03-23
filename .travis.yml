@@ -5,3 +5,5 @@ xcode_project: iCPC.xcodeproj # path to your xcodeproj folder
 xcode_scheme: iCPC
 xcode_destination: platform=iOS Simulator,OS=10.1,name=iPad Pro (9.7-inch)
 
+before_install:
+  - pod repo update
