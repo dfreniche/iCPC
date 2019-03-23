@@ -38,8 +38,6 @@ CGPoint centerLocation;
 
 UIView                  *inputView;
 
-MyKeyboard *mykeyboard;
-
 CGRect portraitBounds;
 
 UIImageView *key_up;
@@ -54,6 +52,10 @@ UIImageView *key_start;
 GCController *myController;
 }
 
+@property (weak, nonatomic) IBOutlet UIView *cpcScreen;
+@property (weak, nonatomic) IBOutlet MyKeyboard *myKeyboard;
+
+
 @end
 
 @implementation ICPCMainViewController
@@ -64,78 +66,18 @@ GCController *myController;
     
     portraitBounds = [[UIScreen mainScreen] bounds];
     
-    CGRect bounds = [[UIScreen mainScreen] bounds];
+//    m_oglView = [[OGLView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.width * 0.625) width:384 height:272 fps:15];
     
-    m_oglView = [[OGLView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.width * 0.625) width:384 height:272 fps:15];
-    m_oglView.backgroundColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1];
+    m_oglView = [[OGLView alloc] initWithFrame:CGRectMake(0, self.cpcScreen.frame.origin.y, self.cpcScreen.bounds.size.width, self.cpcScreen.bounds.size.width * 0.625) width:384 height:272 fps:15];
+//    m_oglView = [[OGLView alloc] initWithFrame:self.cpcScreen.frame width:self.cpcScreen.bounds.size.width height:self.cpcScreen.bounds.size.height fps:15];
+    m_oglView.backgroundColor = [UIColor greenColor];
     m_oglView.parent = self;
-    m_oglView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    m_oglView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:m_oglView];
     
-    self.view.backgroundColor=[UIColor blackColor];
+    [self.myKeyboard setImage:[UIImage imageNamed:@"keyboard-cpc6128"]];
     
-    float keyboardHeight=bounds.size.width * 0.75;
-    if (keyboardHeight>bounds.size.height-bounds.size.width * 0.625) {
-        keyboardHeight=bounds.size.height-bounds.size.width * 0.625;
-    }
-    
-    mykeyboard=[[MyKeyboard alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
-    mykeyboard.frame=CGRectMake(bounds.origin.x, bounds.size.height - keyboardHeight, bounds.size.width, keyboardHeight); //  200, width, 260);
-    [self.view addSubview:mykeyboard];
-    
-    int w,h;
-    
-    w=m_oglView.frame.size.width/6;
-    h=m_oglView.frame.size.height/4;
-    
-    
-    key_up=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_up.png"]];
-    key_up.frame=CGRectMake( w * 1,  h * 1, 48,48);
-    key_up.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    [m_oglView addSubview:key_up];
-    
-    key_down=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_down.png"]];
-    key_down.frame=CGRectMake( w * 1,  h * 3, 48,48);
-    key_down.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    [m_oglView addSubview:key_down];
-    
-    key_left=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_left.png"]];
-    key_left.frame=CGRectMake( w * 0,  h * 2, 48,48);
-    key_left.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    [m_oglView addSubview:key_left];
-    
-    key_right=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_right.png"]];
-    key_right.frame=CGRectMake( w * 2,  h * 2, 48,48);
-    key_right.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    [m_oglView addSubview:key_right];
-    
-    
-    centerLocation=CGPointMake(100,100);
-    key_left.center = CGPointMake(centerLocation.x - RAYON*2, centerLocation.y);
-    key_right.center = CGPointMake(centerLocation.x + RAYON*2, centerLocation.y);
-    key_up.center = CGPointMake(centerLocation.x, centerLocation.y - RAYON*2);
-    key_down.center = CGPointMake(centerLocation.x, centerLocation.y + RAYON*2);
-    
-    key_a=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_a.png"]];
-    key_a.frame=CGRectMake( w * 4,  h * 3, 48,48);
-    key_a.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
-    [m_oglView addSubview:key_a];
-    
-    key_b=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_b.png"]];
-    key_b.frame=CGRectMake( w * 5,  h * 3, 48,48);
-    key_b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
-    [m_oglView addSubview:key_b];
-    
-    key_select=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_select.png"]];
-    key_select.frame=CGRectMake( w * 4,  h * 0, 48,48);
-    key_select.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [m_oglView addSubview:key_select];
-    
-    key_start=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_start.png"]];
-    key_start.frame=CGRectMake( w * 5,  h * 0, 48,48);
-    key_start.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [m_oglView addSubview:key_start];
-    
+    [self setupButtonsInCPCView];
     [self setupGameControllers];
 }
 
@@ -153,15 +95,31 @@ GCController *myController;
 }
     
 - (void)externalKeyPressed:(UIKeyCommand *)key {
+    NSLog(@"Key pressed %@", key.input);
+    
     if ([key.input isEqualToString:UIKeyInputLeftArrow]) {
         [self keypadKeyPressed:KEY_LEFT];
     }
     else if ([key.input isEqualToString:UIKeyInputRightArrow]) {
         [self keypadKeyPressed:KEY_RIGHT];
     }
+    else if ([key.input isEqualToString:UIKeyInputUpArrow]) {
+        [self keypadKeyPressed:KEY_UP];
+    }
+    else if ([key.input isEqualToString:UIKeyInputDownArrow]) {
+        [self keypadKeyPressed:KEY_DOWN];
+    }
+    
+}
+
+- (void)pressesEnded:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event {
+    NSLog(@"Press ");
 }
     
 - (void)keypadKeyPressed:(int)keypadBits {
+
+    ipc.touchDown=0;
+
     ipc.keys_pressed |= keypadBits;
 }
     
@@ -390,9 +348,9 @@ GCController *myController;
         } else if (location.x<m_oglView.frame.size.width/2) {
             centerLocation=location;
             key_left.center = CGPointMake(centerLocation.x - RAYON*2, centerLocation.y);
-                        key_right.center = CGPointMake(centerLocation.x + RAYON*2, centerLocation.y);
-                        key_up.center = CGPointMake(centerLocation.x, centerLocation.y - RAYON*2);
-                        key_down.center = CGPointMake(centerLocation.x, centerLocation.y + RAYON*2);
+            key_right.center = CGPointMake(centerLocation.x + RAYON*2, centerLocation.y);
+            key_up.center = CGPointMake(centerLocation.x, centerLocation.y - RAYON*2);
+            key_down.center = CGPointMake(centerLocation.x, centerLocation.y + RAYON*2);
         }
         
         if (viewEffect!=nil) {
@@ -405,12 +363,12 @@ GCController *myController;
         return;
     }
     
-    location = [touch locationInView:mykeyboard];
+    location = [touch locationInView:self.myKeyboard];
     
     int x,y;
     
-    x=(location.x*256)/mykeyboard.frame.size.width;
-    y=(location.y*192)/mykeyboard.frame.size.height;
+    x=(location.x*256)/self.myKeyboard.frame.size.width;
+    y=(location.y*192)/self.myKeyboard.frame.size.height;
     
     //    NSLog(@"location: %f,%f", location.x, location.y);
     
@@ -521,13 +479,13 @@ GCController *myController;
     }
     
     if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-        mykeyboard.hidden=false;
+        self.myKeyboard.hidden=false;
         
         m_oglView.frame = CGRectMake(0, 0,  portraitBounds.size.width,  portraitBounds.size.width * 0.625);
         m_oglView.autoresizingMask = UIViewAutoresizingNone;
         
     } else {    // device in Landscape
-        mykeyboard.hidden=true;
+        self.myKeyboard.hidden=true;
 
         m_oglView.frame = CGRectMake(0, 0,  self.view.frame.size.height, self.view.frame.size.width);
         
@@ -546,6 +504,61 @@ GCController *myController;
         MyCatalog *catalogViewController = (MyCatalog *)nav.topViewController;
         catalogViewController.delegate = self;
     }
+}
+
+- (void)setupButtonsInCPCView {
+    
+    int w,h;
+    
+    w=m_oglView.frame.size.width/6;
+    h=m_oglView.frame.size.height/4;
+    
+    key_up=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_up.png"]];
+    key_up.frame=CGRectMake( w * 1,  h * 1, 48,48);
+    key_up.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    [m_oglView addSubview:key_up];
+    
+    key_down=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_down.png"]];
+    key_down.frame=CGRectMake( w * 1,  h * 3, 48,48);
+    key_down.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    [m_oglView addSubview:key_down];
+    
+    key_left=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_left.png"]];
+    key_left.frame=CGRectMake( w * 0,  h * 2, 48,48);
+    key_left.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    [m_oglView addSubview:key_left];
+    
+    key_right=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_right.png"]];
+    key_right.frame=CGRectMake( w * 2,  h * 2, 48,48);
+    key_right.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    [m_oglView addSubview:key_right];
+    
+    
+    centerLocation=CGPointMake(100,100);
+    key_left.center = CGPointMake(centerLocation.x - RAYON*2, centerLocation.y);
+    key_right.center = CGPointMake(centerLocation.x + RAYON*2, centerLocation.y);
+    key_up.center = CGPointMake(centerLocation.x, centerLocation.y - RAYON*2);
+    key_down.center = CGPointMake(centerLocation.x, centerLocation.y + RAYON*2);
+    
+    key_a=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_a.png"]];
+    key_a.frame=CGRectMake( w * 4,  h * 3, 48,48);
+    key_a.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    [m_oglView addSubview:key_a];
+    
+    key_b=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_b.png"]];
+    key_b.frame=CGRectMake( w * 5,  h * 3, 48,48);
+    key_b.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    [m_oglView addSubview:key_b];
+    
+    key_select=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_select.png"]];
+    key_select.frame=CGRectMake( w * 4,  h * 0, 48,48);
+    key_select.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+    [m_oglView addSubview:key_select];
+    
+    key_start=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"key_start.png"]];
+    key_start.frame=CGRectMake( w * 5,  h * 0, 48,48);
+    key_start.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+    [m_oglView addSubview:key_start];
 }
 
 @end

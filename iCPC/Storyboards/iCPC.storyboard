@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kaY-gr-K8V">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,52 +15,52 @@
             <objects>
                 <viewController id="kaY-gr-K8V" customClass="ICPCMainViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KqN-cd-N3D">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8t-57-yXZ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="314"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="367"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="314" id="uEs-oz-mo0"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="uEs-oz-mo0"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="uEs-oz-mo0"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBG-Fa-sZq" customClass="MyKeyboard">
-                                <rect key="frame" x="0.0" y="395" width="375" height="272"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pkG-jZ-zFp">
-                                <rect key="frame" x="0.0" y="333" width="375" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBG-Fa-sZq" customClass="MyKeyboard">
+                                <rect key="frame" x="0.0" y="411" width="375" height="367"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByI-kR-SNS">
-                                        <rect key="frame" x="11" y="0.0" width="52" height="62"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="AMSOFT CF2"/>
-                                        <connections>
-                                            <segue destination="Ikc-ns-5Iz" kind="presentation" identifier="ShowFilesSegue" modalTransitionStyle="coverVertical" id="xrN-XY-A9E"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkG-jZ-zFp" userLabel="Buttons">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ByI-kR-SNS">
+                                                <rect key="frame" x="11" y="0.0" width="52" height="62"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="AMSOFT CF2"/>
+                                                <connections>
+                                                    <segue destination="Ikc-ns-5Iz" kind="presentation" identifier="ShowFilesSegue" modalTransitionStyle="coverVertical" id="xrN-XY-A9E"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="NM3-7F-3So"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="pkG-jZ-zFp" firstAttribute="top" secondItem="LBG-Fa-sZq" secondAttribute="top" id="b4x-av-x6D"/>
+                                    <constraint firstAttribute="trailing" secondItem="pkG-jZ-zFp" secondAttribute="trailing" id="jfX-Gf-CjL"/>
+                                    <constraint firstItem="pkG-jZ-zFp" firstAttribute="leading" secondItem="LBG-Fa-sZq" secondAttribute="leading" id="v2s-ZY-7ft"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="m8t-57-yXZ" firstAttribute="top" secondItem="rTP-5g-DHo" secondAttribute="top" id="1qU-vV-Xfx"/>
+                            <constraint firstItem="LBG-Fa-sZq" firstAttribute="height" secondItem="m8t-57-yXZ" secondAttribute="height" id="BVB-QX-L7Y"/>
+                            <constraint firstItem="LBG-Fa-sZq" firstAttribute="top" secondItem="m8t-57-yXZ" secondAttribute="bottom" id="MOT-DY-guD"/>
                             <constraint firstItem="m8t-57-yXZ" firstAttribute="leading" secondItem="rTP-5g-DHo" secondAttribute="leading" id="OaG-eC-t2q"/>
+                            <constraint firstItem="LBG-Fa-sZq" firstAttribute="leading" secondItem="rTP-5g-DHo" secondAttribute="leading" id="TbH-Wb-MZ4"/>
+                            <constraint firstItem="rTP-5g-DHo" firstAttribute="trailing" secondItem="LBG-Fa-sZq" secondAttribute="trailing" id="dzU-6t-Vy6"/>
                             <constraint firstItem="rTP-5g-DHo" firstAttribute="trailing" secondItem="m8t-57-yXZ" secondAttribute="trailing" id="tD0-gA-ygY"/>
+                            <constraint firstItem="rTP-5g-DHo" firstAttribute="bottom" secondItem="LBG-Fa-sZq" secondAttribute="bottom" id="vEk-3M-mA7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rTP-5g-DHo"/>
                         <variation key="default">
@@ -78,17 +78,21 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="cpcScreen" destination="m8t-57-yXZ" id="Zio-Bv-JbH"/>
+                        <outlet property="myKeyboard" destination="LBG-Fa-sZq" id="ZYm-Xd-ZKm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSf-xw-jzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-504.80000000000001" y="115.59220389805098"/>
+            <point key="canvasLocation" x="-504.80000000000001" y="115.27093596059113"/>
         </scene>
         <!--My Catalog-->
         <scene sceneID="Clz-zA-YPP">
             <objects>
                 <tableViewController id="azW-5B-g7M" customClass="MyCatalog" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mhO-WH-MSJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -96,7 +100,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jJl-ON-Z0w" id="6dN-cH-BmZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -118,7 +122,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ikc-ns-5Iz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wcx-8Q-UzZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

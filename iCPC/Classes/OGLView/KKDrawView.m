@@ -70,19 +70,8 @@ assert(0); \
         
         // ---
         
-		displayLinkSupported = FALSE;
+		displayLinkSupported = TRUE;
 		displayLink = nil;
-		
-		// A system version of 3.1 or greater is required to use CADisplayLink. The NSTimer
-		// class is used as fallback when it isn't available.
-		NSString *reqSysVer = @"3.1";
-		NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
-		if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending) {
-			displayLinkSupported = TRUE;
-        }
-        
-        
-        //---
         
         glBindTexture(GL_TEXTURE_2D, m_tex);
         
