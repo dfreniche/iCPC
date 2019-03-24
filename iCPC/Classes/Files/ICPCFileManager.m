@@ -30,4 +30,10 @@
     [[ICPCConfig sharedInstance] setDskDemosAlreadyCopied:true];
 }
 
++ (NSData *)loadBinFile:(NSString *)named {
+    
+    NSData *loaded = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:named ofType:@"bin"]];
+    return loaded;
+}
+
 @end

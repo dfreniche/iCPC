@@ -97,6 +97,9 @@
 		00F886851667776500BC5FEA /* about-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F886841667776500BC5FEA /* about-background.png */; };
 		1338B155183B6922008653A7 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1338B154183B6922008653A7 /* GameController.framework */; };
 		1E1EBF18D81B9692554B8E4E /* libPods-iCPCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5227CAC13F6CBF9914516E08 /* libPods-iCPCTests.a */; };
+		9909DEC222478AD800A216AE /* ICPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9909DEC122478AD800A216AE /* ICPC.m */; };
+		9909DEC522478EA800A216AE /* ICPCScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9909DEC422478EA800A216AE /* ICPCScreen.m */; };
+		9909DEC8224798C900A216AE /* ICPCColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9909DEC7224798C900A216AE /* ICPCColors.m */; };
 		994455E2221EF846007EA9E3 /* ICPCConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 994455E1221EF846007EA9E3 /* ICPCConfig.m */; };
 		99445FCA22200D3300B89C36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99445FC422200D3300B89C36 /* Localizable.strings */; };
 		99445FCB22200D3300B89C36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99445FC722200D3300B89C36 /* Localizable.strings */; };
@@ -245,6 +248,13 @@
 		1338B154183B6922008653A7 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		465CF1D46A946BD3A54BBA53 /* Pods-iCPC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCPC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCPC/Pods-iCPC.debug.xcconfig"; sourceTree = "<group>"; };
 		5227CAC13F6CBF9914516E08 /* libPods-iCPCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCPCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9909DEC022478AD800A216AE /* ICPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPC.h; sourceTree = "<group>"; };
+		9909DEC122478AD800A216AE /* ICPC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPC.m; sourceTree = "<group>"; };
+		9909DEC322478EA800A216AE /* ICPCScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCScreen.h; sourceTree = "<group>"; };
+		9909DEC422478EA800A216AE /* ICPCScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCScreen.m; sourceTree = "<group>"; };
+		9909DEC6224798C900A216AE /* ICPCColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCColors.h; sourceTree = "<group>"; };
+		9909DEC7224798C900A216AE /* ICPCColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCColors.m; sourceTree = "<group>"; };
+		9909DEC922479AA100A216AE /* ICPCTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCTypes.h; sourceTree = "<group>"; };
 		994455E0221EF846007EA9E3 /* ICPCConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCConfig.h; sourceTree = "<group>"; };
 		994455E1221EF846007EA9E3 /* ICPCConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCConfig.m; sourceTree = "<group>"; };
 		99445FC522200D3300B89C36 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
@@ -504,6 +514,7 @@
 		00ED3B9D13E9E3C400AA663A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9909DEBF22478AB600A216AE /* Emulator */,
 				99BBFE2D221F1EBF00E6709D /* Files */,
 				99BBFE28221F100500E6709D /* Keyboard */,
 				99BBFE27221F0F9800E6709D /* OGLView */,
@@ -543,6 +554,20 @@
 				00ED3BAE13E9E5DC00AA663A /* smallfont.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9909DEBF22478AB600A216AE /* Emulator */ = {
+			isa = PBXGroup;
+			children = (
+				9909DEC022478AD800A216AE /* ICPC.h */,
+				9909DEC122478AD800A216AE /* ICPC.m */,
+				9909DEC322478EA800A216AE /* ICPCScreen.h */,
+				9909DEC422478EA800A216AE /* ICPCScreen.m */,
+				9909DEC6224798C900A216AE /* ICPCColors.h */,
+				9909DEC7224798C900A216AE /* ICPCColors.m */,
+				9909DEC922479AA100A216AE /* ICPCTypes.h */,
+			);
+			path = Emulator;
 			sourceTree = "<group>";
 		};
 		994455E3221EF850007EA9E3 /* Config */ = {
@@ -862,6 +887,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9909DEC8224798C900A216AE /* ICPCColors.m in Sources */,
 				00ED3B7F13E9E34A00AA663A /* main.m in Sources */,
 				00ED3B8313E9E34A00AA663A /* ICPCAppDelegate.m in Sources */,
 				00ED3B9013E9E34B00AA663A /* ICPCMainViewController.m in Sources */,
@@ -887,6 +913,7 @@
 				007ACB6613FBD2340034363A /* sound.c in Sources */,
 				007ACB9813FBE32D0034363A /* adler32.c in Sources */,
 				007ACB9913FBE32D0034363A /* infblock.c in Sources */,
+				9909DEC522478EA800A216AE /* ICPCScreen.m in Sources */,
 				007ACB9A13FBE32D0034363A /* infcodes.c in Sources */,
 				99445FD12221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m in Sources */,
 				007ACB9B13FBE32D0034363A /* inffast.c in Sources */,
@@ -902,6 +929,7 @@
 				00C9F0E21403BBB400B0F226 /* AboutViewController.m in Sources */,
 				00C9F0F31403CD0C00B0F226 /* MyCatalog.m in Sources */,
 				99445FCE2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m in Sources */,
+				9909DEC222478AD800A216AE /* ICPC.m in Sources */,
 				009D82591650292400FD90B7 /* iCadeReaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
