@@ -306,6 +306,7 @@ typedef struct {
 
 int cpckeypressed[NBCPCKEY];
 
+// DIFB: positions on screen of each key
 RECT keypos[NBCPCKEY] = { 
     {0,51,14,72}, //    0x50 | MOD_CPC_SHIFT,   // CPC_8
 	{15,51,33,72}, //    0x41 | MOD_CPC_SHIFT,   // CPC_9
@@ -476,7 +477,7 @@ RECT keypos[NBCPCKEY] = {
 CPC_SCANCODE keyown[11];
 
 CPC_MAP keymap[NBCPCKEY] = {
-	{ CPC_FDOT },	    
+	{ CPC_FDOT },	   // 0
 	{ CPC_F1 },   
 	{ CPC_F2 },   
 	{ CPC_F3 },       
@@ -485,19 +486,19 @@ CPC_MAP keymap[NBCPCKEY] = {
 	{ CPC_F6 },
 	{ CPC_F7 },
 	{ CPC_F8 },
-	{ CPC_F9 },
+	{ CPC_F9 },     // 9
 	{ CPC_F0 }, 
-	{ CPC_CURSOR_UP },            	
+	{ CPC_CURSOR_UP },    // 11
 	{ CPC_CURSOR_LEFT },   
 	{ CPC_CURSOR_DOWN },            
 	{ CPC_CURSOR_RIGHT },
 
 	{ CPC_ESC },
-	{ CPC_1 },
+	{ CPC_1 },//16
 	{ CPC_2 },
 	{ CPC_3 },
 	{ CPC_4 },
-	{ CPC_5 },
+	{ CPC_5 }, // 20
 	{ CPC_6 },            
 	{ CPC_7 },
 	{ CPC_8 },      
@@ -508,10 +509,10 @@ CPC_MAP keymap[NBCPCKEY] = {
 	{ CPC_CLR },
 	{ CPC_DEL },
 	
-	{ CPC_TAB },       //
+	{ CPC_TAB },       // 30
 	{ CPC_Q },         
 	{ CPC_W },         
-	{ CPC_E },            
+	{ CPC_E },//33
 	{ CPC_R },            
 	{ CPC_T },            
 	{ CPC_Y },   
@@ -926,7 +927,7 @@ int ExecuteMenu(int n, struct kmenu *current)
                 return 0;
                 break;
 			case ID_COLOR_MONITOR:
-				SetPalette(1);   
+				SetPalette(3);   
 				return 0;
 				break;
 			case ID_GREEN_MONITOR:
@@ -1590,30 +1591,7 @@ int nds_ReadKey(void)
         keys_pressed = ipc.keys_pressed;
 		
 		memset(clav,0xFF,16);
-		
-		if (ipc.touchDown==1) {
-			int x,y,n;
-			
-			x=ipc.touchXpx;
-			y=ipc.touchYpx;
-            
-           /* if ((x>0) & (x<32) & (y>=25) & (y<=36)) {
-                ExecuteMenu(ID_RESET, NULL);
-                ipc.touchDown=0;
-            }
-            */
 
-           if ( (x>=230) && (x<=254) && (y>=1) && (y<=33) ) { // 52
-  				inMenu=1;
-			}			
-			
-			for (n=0;n<NBCPCKEY;n++) {
-				if ( (x>=keypos[n].left) && (x<=keypos[n].right) && (y>=keypos[n].top) && (y<=keypos[n].bottom) ) {
-					PressKey(n);
-					break;
-				}
-			} 
-        }	
         
         if (keyEmul==3) {
             if ((keys_pressed & KEY_UP)==KEY_UP)
@@ -1816,7 +1794,7 @@ void nds_init(void)
 	*/
     
     ExecuteMenu(ID_COLOR_MONITOR, NULL);
-   ExecuteMenu(ID_SCREEN_AUTO, NULL);
+    ExecuteMenu(ID_SCREEN_AUTO, NULL);
     
    // ExecuteMenu(ID_SCREEN_OVERSCAN, NULL);
     ExecuteMenu(ID_KEY_JOYSTICK, NULL);

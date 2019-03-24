@@ -315,12 +315,17 @@ GCController *myController;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    ////    AutoType_SetString("10 PRINT \"HELLO\"", YES);
+
+    PressKey(32);
+
+
     UITouch *touch = [[touches allObjects] objectAtIndex:0];
-    
+
     CGPoint location = [touch locationInView:m_oglView];
     if (location.y<m_oglView.frame.size.height) {       // Click dans l'ecran
         UIView *viewEffect=nil;
-        
+
         if (CGRectContainsPoint(key_left.frame, location)) {
             ipc.keys_pressed |= KEY_LEFT;
             viewEffect=key_left;
@@ -352,35 +357,35 @@ GCController *myController;
             key_up.center = CGPointMake(centerLocation.x, centerLocation.y - RAYON*2);
             key_down.center = CGPointMake(centerLocation.x, centerLocation.y + RAYON*2);
         }
-        
+
         if (viewEffect!=nil) {
             [UIView beginAnimations:@"" context:NULL];
             [viewEffect setAlpha:(0.0)];
             [UIView setAnimationDuration:0.5];
             [UIView commitAnimations];
         }
-        
+
         return;
     }
-    
+
     location = [touch locationInView:self.myKeyboard];
-    
+
     int x,y;
-    
+
     x=(location.x*256)/self.myKeyboard.frame.size.width;
     y=(location.y*192)/self.myKeyboard.frame.size.height;
-    
+
     //    NSLog(@"location: %f,%f", location.x, location.y);
-    
+
     if (y<64) {
         [self showSettingsView];
         /*
          if (location.x<160) {
          char autofile[256];
-         
+
          NSData *dsk=[[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"bombjack" ofType:@"dsk"]];
          LireDiskMem((u8*)[dsk bytes], [dsk length], autofile);
-         
+
          if (autofile[0]!=0) {
          char buffer[256];
          sprintf(buffer,"run\"%s\n", autofile);
@@ -393,12 +398,12 @@ GCController *myController;
          */
         return;
     }
-    
-    
+
+
     ipc.touchXpx=x;
     ipc.touchYpx=y;
     ipc.touchDown=1;
-    
+
     NSLog(@"keyboard: %d,%d", ipc.touchXpx, ipc.touchYpx);
 }
 
@@ -458,10 +463,6 @@ GCController *myController;
     NSLog(@"window: %@", window);
     
     return 24;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
