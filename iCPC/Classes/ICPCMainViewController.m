@@ -10,7 +10,6 @@
 #include <QuartzCore/CADisplayLink.h>
 #import <OpenGLES/EAGLDrawable.h>
 #import <OpenGLES/ES1/glext.h>
-#import "MyKeyboard.h"
 #import "OGLView/OGLView.h"
 #import "Keyboard/ICPCMainViewController+ExternalKeyboard.h"
 #import "ICPCMainViewController+ICPCCatalogFileSelected.h"
@@ -53,7 +52,6 @@ GCController *myController;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *cpcScreen;
-@property (weak, nonatomic) IBOutlet MyKeyboard *myKeyboard;
 
 
 @end
@@ -74,8 +72,6 @@ GCController *myController;
     m_oglView.parent = self;
 //    m_oglView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:m_oglView];
-    
-    [self.myKeyboard setImage:[UIImage imageNamed:@"keyboard-cpc6128"]];
     
     [self setupButtonsInCPCView];
     [self setupGameControllers];
@@ -368,12 +364,12 @@ GCController *myController;
         return;
     }
 
-    location = [touch locationInView:self.myKeyboard];
+//    location = [touch locationInView:self.myKeyboard];
 
     int x,y;
 
-    x=(location.x*256)/self.myKeyboard.frame.size.width;
-    y=(location.y*192)/self.myKeyboard.frame.size.height;
+//    x=(location.x*256)/self.myKeyboard.frame.size.width;
+//    y=(location.y*192)/self.myKeyboard.frame.size.height;
 
     //    NSLog(@"location: %f,%f", location.x, location.y);
 
@@ -480,13 +476,13 @@ GCController *myController;
     }
     
     if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-        self.myKeyboard.hidden=false;
+//        self.myKeyboard.hidden=false;
         
         m_oglView.frame = CGRectMake(0, 0,  portraitBounds.size.width,  portraitBounds.size.width * 0.625);
         m_oglView.autoresizingMask = UIViewAutoresizingNone;
         
     } else {    // device in Landscape
-        self.myKeyboard.hidden=true;
+//        self.myKeyboard.hidden=true;
 
         m_oglView.frame = CGRectMake(0, 0,  self.view.frame.size.height, self.view.frame.size.width);
         
