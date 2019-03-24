@@ -78,7 +78,6 @@
 		00C9F0E91403BBD600B0F226 /* karaopocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 00C9F0E51403BBD300B0F226 /* karaopocket.png */; };
 		00C9F0EA1403BBD600B0F226 /* karaopocket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00C9F0E61403BBD400B0F226 /* karaopocket@2x.png */; };
 		00C9F0F31403CD0C00B0F226 /* MyCatalog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C9F0F21403CD0C00B0F226 /* MyCatalog.m */; };
-		00D26C1F14018AE500855ACC /* MyKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D26C1E14018AE400855ACC /* MyKeyboard.m */; };
 		00ED3B6F13E9E34A00AA663A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED3B6E13E9E34A00AA663A /* UIKit.framework */; };
 		00ED3B7113E9E34A00AA663A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED3B7013E9E34A00AA663A /* Foundation.framework */; };
 		00ED3B7313E9E34A00AA663A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00ED3B7213E9E34A00AA663A /* CoreGraphics.framework */; };
@@ -100,10 +99,12 @@
 		9909DEC222478AD800A216AE /* ICPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9909DEC122478AD800A216AE /* ICPC.m */; };
 		9909DEC522478EA800A216AE /* ICPCScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 9909DEC422478EA800A216AE /* ICPCScreen.m */; };
 		9909DEC8224798C900A216AE /* ICPCColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 9909DEC7224798C900A216AE /* ICPCColors.m */; };
+		9909DECD2247B0E400A216AE /* ICPCKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9909DECB2247B0E400A216AE /* ICPCKeyboardViewController.m */; };
+		9909DED12248087200A216AE /* ICPCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9909DED02248087200A216AE /* ICPCButton.m */; };
 		994455E2221EF846007EA9E3 /* ICPCConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 994455E1221EF846007EA9E3 /* ICPCConfig.m */; };
 		99445FCA22200D3300B89C36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99445FC422200D3300B89C36 /* Localizable.strings */; };
 		99445FCB22200D3300B89C36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99445FC722200D3300B89C36 /* Localizable.strings */; };
-		99445FCE2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 99445FCD2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m */; };
+		99445FCE2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 99445FCD2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m */; };
 		99445FD12221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m in Sources */ = {isa = PBXBuildFile; fileRef = 99445FD02221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m */; };
 		99AC3A37221ECAB20042A541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A36221ECAB20042A541 /* Images.xcassets */; };
 		99BBFE2B221F136800E6709D /* iCPC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BBFE2A221F136800E6709D /* iCPC.storyboard */; };
@@ -220,8 +221,6 @@
 		00C9F0E61403BBD400B0F226 /* karaopocket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "karaopocket@2x.png"; sourceTree = "<group>"; };
 		00C9F0F11403CD0C00B0F226 /* MyCatalog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCatalog.h; sourceTree = "<group>"; };
 		00C9F0F21403CD0C00B0F226 /* MyCatalog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCatalog.m; sourceTree = "<group>"; };
-		00D26C1D14018AE400855ACC /* MyKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyKeyboard.h; sourceTree = "<group>"; };
-		00D26C1E14018AE400855ACC /* MyKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyKeyboard.m; sourceTree = "<group>"; };
 		00ED3B6A13E9E34A00AA663A /* iCPC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCPC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00ED3B6E13E9E34A00AA663A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		00ED3B7013E9E34A00AA663A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -255,13 +254,17 @@
 		9909DEC6224798C900A216AE /* ICPCColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCColors.h; sourceTree = "<group>"; };
 		9909DEC7224798C900A216AE /* ICPCColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCColors.m; sourceTree = "<group>"; };
 		9909DEC922479AA100A216AE /* ICPCTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCTypes.h; sourceTree = "<group>"; };
+		9909DECA2247B0E400A216AE /* ICPCKeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCKeyboardViewController.h; sourceTree = "<group>"; };
+		9909DECB2247B0E400A216AE /* ICPCKeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCKeyboardViewController.m; sourceTree = "<group>"; };
+		9909DECF2248087200A216AE /* ICPCButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCButton.h; sourceTree = "<group>"; };
+		9909DED02248087200A216AE /* ICPCButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCButton.m; sourceTree = "<group>"; };
 		994455E0221EF846007EA9E3 /* ICPCConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCConfig.h; sourceTree = "<group>"; };
 		994455E1221EF846007EA9E3 /* ICPCConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCConfig.m; sourceTree = "<group>"; };
 		99445FC522200D3300B89C36 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		99445FC822200D3300B89C36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		99445FC922200D3300B89C36 /* Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Localization.h; sourceTree = "<group>"; };
-		99445FCC2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ICPCMainViewController+ExternalKeyboard.h"; sourceTree = "<group>"; };
-		99445FCD2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ICPCMainViewController+ExternalKeyboard.m"; sourceTree = "<group>"; };
+		99445FCC2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ICPCKeyboardViewController+ExternalKeyboard.h"; sourceTree = "<group>"; };
+		99445FCD2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ICPCKeyboardViewController+ExternalKeyboard.m"; sourceTree = "<group>"; };
 		99445FCF2221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ICPCMainViewController+ICPCCatalogFileSelected.h"; sourceTree = "<group>"; };
 		99445FD02221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ICPCMainViewController+ICPCCatalogFileSelected.m"; sourceTree = "<group>"; };
 		99AC3A36221ECAB20042A541 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -620,10 +623,12 @@
 		99BBFE28221F100500E6709D /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
-				00D26C1D14018AE400855ACC /* MyKeyboard.h */,
-				00D26C1E14018AE400855ACC /* MyKeyboard.m */,
-				99445FCC2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.h */,
-				99445FCD2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m */,
+				99445FCC2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.h */,
+				99445FCD2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m */,
+				9909DECA2247B0E400A216AE /* ICPCKeyboardViewController.h */,
+				9909DECB2247B0E400A216AE /* ICPCKeyboardViewController.m */,
+				9909DECF2248087200A216AE /* ICPCButton.h */,
+				9909DED02248087200A216AE /* ICPCButton.m */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -921,14 +926,15 @@
 				007ACB9D13FBE32D0034363A /* inftrees.c in Sources */,
 				007ACB9E13FBE32D0034363A /* infutil.c in Sources */,
 				007ACB9F13FBE32D0034363A /* zutil.c in Sources */,
-				00D26C1F14018AE500855ACC /* MyKeyboard.m in Sources */,
 				994455E2221EF846007EA9E3 /* ICPCConfig.m in Sources */,
+				9909DED12248087200A216AE /* ICPCButton.m in Sources */,
 				99BBFE30221F1EDC00E6709D /* ICPCFileManager.m in Sources */,
 				00C9F0BC14038B2700B0F226 /* microlib.c in Sources */,
 				00C9F0C51403A17400B0F226 /* emu2149.c in Sources */,
 				00C9F0E21403BBB400B0F226 /* AboutViewController.m in Sources */,
 				00C9F0F31403CD0C00B0F226 /* MyCatalog.m in Sources */,
-				99445FCE2220116000B89C36 /* ICPCMainViewController+ExternalKeyboard.m in Sources */,
+				9909DECD2247B0E400A216AE /* ICPCKeyboardViewController.m in Sources */,
+				99445FCE2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m in Sources */,
 				9909DEC222478AD800A216AE /* ICPC.m in Sources */,
 				009D82591650292400FD90B7 /* iCadeReaderView.m in Sources */,
 			);

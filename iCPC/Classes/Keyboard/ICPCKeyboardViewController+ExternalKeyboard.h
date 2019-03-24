@@ -5,7 +5,7 @@
 //  Created by Diego Freniche Brito on 22/02/2019.
 //
 
-#import "ICPCMainViewController.h"
+#import "ICPCKeyboardViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface ICPCMainViewController (ExternalKeyboard)
+@interface ICPCKeyboardViewController (ExternalKeyboard)
     
 @end
 

@@ -11,7 +11,6 @@
 #import <OpenGLES/EAGLDrawable.h>
 #import <OpenGLES/ES1/glext.h>
 #import "OGLView/OGLView.h"
-#import "Keyboard/ICPCMainViewController+ExternalKeyboard.h"
 #import "ICPCMainViewController+ICPCCatalogFileSelected.h"
 
 #import "nds.h"
@@ -28,7 +27,7 @@
     
 #define RAYON 20
 
-@interface ICPCMainViewController () <ICPCExternalKeyboardSupportable> {
+@interface ICPCMainViewController () {
 
 OGLView *m_oglView;
 CADisplayLink* m_displayLink;
@@ -89,24 +88,7 @@ GCController *myController;
     
     [GCController startWirelessControllerDiscoveryWithCompletionHandler:nil];
 }
-    
-- (void)externalKeyPressed:(UIKeyCommand *)key {
-    NSLog(@"Key pressed %@", key.input);
-    
-    if ([key.input isEqualToString:UIKeyInputLeftArrow]) {
-        [self keypadKeyPressed:KEY_LEFT];
-    }
-    else if ([key.input isEqualToString:UIKeyInputRightArrow]) {
-        [self keypadKeyPressed:KEY_RIGHT];
-    }
-    else if ([key.input isEqualToString:UIKeyInputUpArrow]) {
-        [self keypadKeyPressed:KEY_UP];
-    }
-    else if ([key.input isEqualToString:UIKeyInputDownArrow]) {
-        [self keypadKeyPressed:KEY_DOWN];
-    }
-    
-}
+
 
 - (void)pressesEnded:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event {
     NSLog(@"Press ");
