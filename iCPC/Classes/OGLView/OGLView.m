@@ -9,6 +9,7 @@
 #include "ICPCMainViewController.h"
 #include "ICPCAppDelegate.h"
 #import "ICPCConfig.h"
+#import "ICPCFileManager.h"
 
 #include "nds.h"
 
@@ -153,8 +154,8 @@ long nds_GetTicks(void) {
     control.active = YES;
     control.delegate = self;
     
-    NSData *cpc6128=[[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cpc6128" ofType:@"bin"]];
-    NSData *romdisc=[[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"romdisc" ofType:@"bin"]];
+    NSData *cpc6128 = [ICPCFileManager loadBinFile:@"cpc6128"];
+    NSData *romdisc = [ICPCFileManager loadBinFile:@"romdisc"];
     
     nds_initBorder(&bx, &by);
     nds_init();
