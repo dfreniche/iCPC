@@ -106,9 +106,11 @@
 		99445FCB22200D3300B89C36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99445FC722200D3300B89C36 /* Localizable.strings */; };
 		99445FCE2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 99445FCD2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m */; };
 		99445FD12221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m in Sources */ = {isa = PBXBuildFile; fileRef = 99445FD02221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m */; };
+		99A856A82259FEE600784BFD /* KeyReaderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A856A72259FEE600784BFD /* KeyReaderTextField.m */; };
 		99AC3A37221ECAB20042A541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A36221ECAB20042A541 /* Images.xcassets */; };
 		99BBFE2B221F136800E6709D /* iCPC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BBFE2A221F136800E6709D /* iCPC.storyboard */; };
 		99BBFE30221F1EDC00E6709D /* ICPCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BBFE2F221F1EDC00E6709D /* ICPCFileManager.m */; };
+		99D11DE0230201D100641EEB /* iCPCKeyboard.c in Sources */ = {isa = PBXBuildFile; fileRef = 99D11DDF230201D100641EEB /* iCPCKeyboard.c */; };
 		99EEF766221ECEA100339CA9 /* 1943_Commando_Green_Beret.dsk in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A38221ECDFB0042A541 /* 1943_Commando_Green_Beret.dsk */; };
 		99EEF768221ED0BA00339CA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99EEF767221ED0BA00339CA9 /* LaunchScreen.storyboard */; };
 		99EEF770221ED70F00339CA9 /* iCPCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EEF76F221ED70F00339CA9 /* iCPCTests.m */; };
@@ -267,11 +269,15 @@
 		99445FCD2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ICPCKeyboardViewController+ExternalKeyboard.m"; sourceTree = "<group>"; };
 		99445FCF2221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ICPCMainViewController+ICPCCatalogFileSelected.h"; sourceTree = "<group>"; };
 		99445FD02221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ICPCMainViewController+ICPCCatalogFileSelected.m"; sourceTree = "<group>"; };
+		99A856A62259FEE600784BFD /* KeyReaderTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyReaderTextField.h; sourceTree = "<group>"; };
+		99A856A72259FEE600784BFD /* KeyReaderTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyReaderTextField.m; sourceTree = "<group>"; };
 		99AC3A36221ECAB20042A541 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		99AC3A38221ECDFB0042A541 /* 1943_Commando_Green_Beret.dsk */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1943_Commando_Green_Beret.dsk; sourceTree = "<group>"; };
 		99BBFE2A221F136800E6709D /* iCPC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iCPC.storyboard; sourceTree = "<group>"; };
 		99BBFE2E221F1EDC00E6709D /* ICPCFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICPCFileManager.h; sourceTree = "<group>"; };
 		99BBFE2F221F1EDC00E6709D /* ICPCFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICPCFileManager.m; sourceTree = "<group>"; };
+		99D11DDE230201D100641EEB /* iCPCKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iCPCKeyboard.h; sourceTree = "<group>"; };
+		99D11DDF230201D100641EEB /* iCPCKeyboard.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = iCPCKeyboard.c; sourceTree = "<group>"; };
 		99EEF767221ED0BA00339CA9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99EEF76D221ED70F00339CA9 /* iCPCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCPCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99EEF76F221ED70F00339CA9 /* iCPCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCPCTests.m; sourceTree = "<group>"; };
@@ -629,6 +635,10 @@
 				9909DECB2247B0E400A216AE /* ICPCKeyboardViewController.m */,
 				9909DECF2248087200A216AE /* ICPCButton.h */,
 				9909DED02248087200A216AE /* ICPCButton.m */,
+				99A856A62259FEE600784BFD /* KeyReaderTextField.h */,
+				99A856A72259FEE600784BFD /* KeyReaderTextField.m */,
+				99D11DDE230201D100641EEB /* iCPCKeyboard.h */,
+				99D11DDF230201D100641EEB /* iCPCKeyboard.c */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -717,7 +727,7 @@
 		00ED3B6113E9E34A00AA663A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					00ED3B6913E9E34A00AA663A = {
@@ -741,8 +751,10 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				es,
+				Base,
 			);
 			mainGroup = 00ED3B5F13E9E34A00AA663A;
 			productRefGroup = 00ED3B6B13E9E34A00AA663A /* Products */;
@@ -914,7 +926,9 @@
 				007ACB6013FBD2340034363A /* autotype.c in Sources */,
 				007ACB6213FBD2340034363A /* log.c in Sources */,
 				007ACB6413FBD2340034363A /* multiface.c in Sources */,
+				99A856A82259FEE600784BFD /* KeyReaderTextField.m in Sources */,
 				007ACB6513FBD2340034363A /* gestport.c in Sources */,
+				99D11DE0230201D100641EEB /* iCPCKeyboard.c in Sources */,
 				007ACB6613FBD2340034363A /* sound.c in Sources */,
 				007ACB9813FBE32D0034363A /* adler32.c in Sources */,
 				007ACB9913FBE32D0034363A /* infblock.c in Sources */,
@@ -991,11 +1005,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1003,8 +1037,12 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1016,12 +1054,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -1081,6 +1143,7 @@
 		99445FBD221FF46F00B89C36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 722SF2V9RH;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1090,6 +1153,7 @@
 		99445FBE221FF46F00B89C36 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 722SF2V9RH;
 				PRODUCT_NAME = "$(TARGET_NAME)";

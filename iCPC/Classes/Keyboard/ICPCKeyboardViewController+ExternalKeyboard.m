@@ -20,7 +20,7 @@
               ],
              [UIKeyCommand keyCommandWithInput:UIKeyInputRightArrow modifierFlags:0 action:@selector(externalKeyPressed:) discoverabilityTitle:@"Cursor Right"
               ],
-             [UIKeyCommand keyCommandWithInput:@"q" modifierFlags:0 action:@selector(externalKeyPressed:) discoverabilityTitle:@"Help"
+             [UIKeyCommand keyCommandWithInput:UIKeyInputEscape modifierFlags:0 action:@selector(externalKeyPressed:) discoverabilityTitle:@"Esc"
               ]
              ];
 }
