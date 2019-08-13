@@ -30,6 +30,7 @@
 
 #include "cpcfont.h"
 #include "iCPCKeyboard.h"
+#include "Backbuffer.h"
 
 IPC ipc;
 int isPaused;
@@ -37,7 +38,6 @@ int *borderX, *borderY;
 
 #define timers2ms(tlow,thigh)(tlow | (thigh<<16)) >> 5
 
-#define AlphaBlendFast(pixel,backpixel) (((((pixel) & 0x7bde) >> 1) | (((backpixel) & 0x7bde) >> 1)) | 0x8000)
 
 extern int turbo;        // dans main.c
 

@@ -13,7 +13,6 @@
 #import "iCPCColors.h"
 
 extern u8 bit_values[8];
-extern int cpckeypressed[];
 
 typedef struct {
     int left,top,right,bottom;
@@ -121,13 +120,14 @@ extern CPC_SCANCODE keyown[11];
 
 #define NBCPCKEY 74
 typedef int CPC_KEY;
+extern int cpckeypressed[NBCPCKEY];
+
 
 void CPC_SetScanCode(CPC_SCANCODE cpc_scancode);
 void CPC_ClearScanCode(CPC_SCANCODE cpc_scancode);
 void PressKey(CPC_KEY n);
 void DispScanCode(CPC_SCANCODE scancode, int status);
 void Dispkey(CPC_KEY n, int status);
-
 
 
 #endif /* iCPCKeyboard_h */

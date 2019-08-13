@@ -106,6 +106,7 @@
 		99445FCB22200D3300B89C36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 99445FC722200D3300B89C36 /* Localizable.strings */; };
 		99445FCE2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 99445FCD2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m */; };
 		99445FD12221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m in Sources */ = {isa = PBXBuildFile; fileRef = 99445FD02221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m */; };
+		9996708F23033DE1000A847C /* Backbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 9996708E23033DE1000A847C /* Backbuffer.c */; };
 		99A856A82259FEE600784BFD /* KeyReaderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A856A72259FEE600784BFD /* KeyReaderTextField.m */; };
 		99AC3A37221ECAB20042A541 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99AC3A36221ECAB20042A541 /* Images.xcassets */; };
 		99BBFE2B221F136800E6709D /* iCPC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99BBFE2A221F136800E6709D /* iCPC.storyboard */; };
@@ -269,6 +270,8 @@
 		99445FCD2220116000B89C36 /* ICPCKeyboardViewController+ExternalKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ICPCKeyboardViewController+ExternalKeyboard.m"; sourceTree = "<group>"; };
 		99445FCF2221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ICPCMainViewController+ICPCCatalogFileSelected.h"; sourceTree = "<group>"; };
 		99445FD02221751C00B89C36 /* ICPCMainViewController+ICPCCatalogFileSelected.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ICPCMainViewController+ICPCCatalogFileSelected.m"; sourceTree = "<group>"; };
+		9996708D23033DE1000A847C /* Backbuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Backbuffer.h; sourceTree = "<group>"; };
+		9996708E23033DE1000A847C /* Backbuffer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Backbuffer.c; sourceTree = "<group>"; };
 		99A856A62259FEE600784BFD /* KeyReaderTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyReaderTextField.h; sourceTree = "<group>"; };
 		99A856A72259FEE600784BFD /* KeyReaderTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyReaderTextField.m; sourceTree = "<group>"; };
 		99AC3A36221ECAB20042A541 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -523,6 +526,7 @@
 		00ED3B9D13E9E3C400AA663A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9996708C23033DCD000A847C /* Screen */,
 				9909DEBF22478AB600A216AE /* Emulator */,
 				99BBFE2D221F1EBF00E6709D /* Files */,
 				99BBFE28221F100500E6709D /* Keyboard */,
@@ -613,6 +617,15 @@
 				99445FC722200D3300B89C36 /* Localizable.strings */,
 			);
 			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		9996708C23033DCD000A847C /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				9996708D23033DE1000A847C /* Backbuffer.h */,
+				9996708E23033DE1000A847C /* Backbuffer.c */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		99BBFE27221F0F9800E6709D /* OGLView */ = {
@@ -912,6 +925,7 @@
 				0085BC7213F8F2A0002B438B /* ConfigViewController.m in Sources */,
 				0085BC7413F8F2A0002B438B /* KSelectionListViewController.m in Sources */,
 				0085BC7513F8F2A0002B438B /* SwitchCell.m in Sources */,
+				9996708F23033DE1000A847C /* Backbuffer.c in Sources */,
 				007ACB2713FBD17C0034363A /* KKDrawView.m in Sources */,
 				007ACB5313FBD2340034363A /* z80.c in Sources */,
 				007ACB5413FBD2340034363A /* plateform.c in Sources */,

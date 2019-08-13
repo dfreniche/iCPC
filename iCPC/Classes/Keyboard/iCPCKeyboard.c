@@ -7,6 +7,9 @@
 
 #include "iCPCKeyboard.h"
 #include "ppi.h"
+#include "Backbuffer.h"
+
+#define AlphaBlendFast(pixel,backpixel) (((((pixel) & 0x7bde) >> 1) | (((backpixel) & 0x7bde) >> 1)) | 0x8000)
 
 int cpckeypressed[NBCPCKEY];
 
@@ -15,7 +18,6 @@ u8 bit_values[8] = {
     0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80
 };
 
-void Dispkey(CPC_KEY n, int status);
 void DispScanCode(CPC_SCANCODE n, int status);
 
 
