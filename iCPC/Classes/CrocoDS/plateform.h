@@ -27,7 +27,7 @@
 #ifndef PLATEFORM_H
 #define PLATEFORM_H
 
-#include "iCPCKeyboard.h"
+#import "iCPCKeyboard.h"
 
 
 #ifdef __cplusplus

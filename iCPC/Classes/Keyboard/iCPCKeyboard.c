@@ -8,6 +8,9 @@
 #include "iCPCKeyboard.h"
 #include "ppi.h"
 
+int cpckeypressed[NBCPCKEY];
+
+
 u8 bit_values[8] = {
     0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80
 };
@@ -315,4 +318,17 @@ void Dispkey(CPC_KEY n, int status)
             break;
     }
 #endif
+}
+
+
+void CPC_SetScanCode(CPC_SCANCODE cpc_scancode)
+{
+    clav[(u8)cpc_scancode >> 3] &= ~bit_values[(u8)cpc_scancode & 7];
+    DispScanCode(cpc_scancode, 1);
+}
+
+void CPC_ClearScanCode(CPC_SCANCODE cpc_scancode)
+{
+    clav[(u8)cpc_scancode >> 3] |= bit_values[(u8)cpc_scancode & 7];
+    DispScanCode(cpc_scancode, 0);
 }

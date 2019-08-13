@@ -29,6 +29,7 @@
 
 
 #include "cpcfont.h"
+#include "iCPCKeyboard.h"
 
 IPC ipc;
 int isPaused;
@@ -299,7 +300,6 @@ void TraceLigne8B512( int y, signed int AdrLo, int AdrHi );
 
 
 
-int cpckeypressed[NBCPCKEY];
 
 
 
@@ -1150,17 +1150,7 @@ void UpdateScreen( void )
 
 
 
-void CPC_SetScanCode(CPC_SCANCODE cpc_scancode)
-{
-	clav[(u8)cpc_scancode >> 3] &= ~bit_values[(u8)cpc_scancode & 7];
-    DispScanCode(cpc_scancode, 1);
-}
 
-void CPC_ClearScanCode(CPC_SCANCODE cpc_scancode)
-{
-	clav[(u8)cpc_scancode >> 3] |= bit_values[(u8)cpc_scancode & 7];
-    DispScanCode(cpc_scancode, 0);
-}
 
 
 

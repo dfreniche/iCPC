@@ -9,10 +9,11 @@
 #define iCPCKeyboard_h
 
 #include <stdio.h>
-#include "iCPCTypes.h"
-#include "iCPCColors.h"
+#import "iCPCTypes.h"
+#import "iCPCColors.h"
 
 extern u8 bit_values[8];
+extern int cpckeypressed[];
 
 typedef struct {
     int left,top,right,bottom;
