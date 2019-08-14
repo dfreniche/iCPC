@@ -54,7 +54,6 @@ int RGBCPCdef[ 32 ] =  {
     return RGBCPCdef[0];
 }
 
-#define RGB15(R,G,B) ((((R) & 0xF8) << 8) | (((G) & 0xFC) << 3) | (((B) & 0xF8) >> 3));
 u16 CPC_BG_PALETTE[32];
 
 - (void) setPalette:(int)color {

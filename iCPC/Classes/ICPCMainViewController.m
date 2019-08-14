@@ -24,6 +24,7 @@
 #import "MyCatalog.h"
 
 #import <GameController/GameController.h>
+#import "ICPCKeyboardViewController.h"
     
 #define RAYON 20
 
@@ -51,6 +52,7 @@ GCController *myController;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *cpcScreen;
+@property (weak, nonatomic) IBOutlet UIView *iCPCKeyboardChildViewController;
 
 
 @end
@@ -74,6 +76,9 @@ GCController *myController;
     
     [self setupButtonsInCPCView];
     [self setupGameControllers];
+    
+    ICPCKeyboardViewController *keyboardViewController = (ICPCKeyboardViewController *)[[self childViewControllers] firstObject];
+    [keyboardViewController hideSystemKeyboard];
 }
 
 - (void)viewDidUnload {

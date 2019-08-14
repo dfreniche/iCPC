@@ -5,6 +5,10 @@
 //  Created by Diego Freniche Brito on 24/03/2019.
 //
 
+
+#ifndef ICPCScreen_h
+#define ICPCScreen_h
+
 #import <Foundation/Foundation.h>
 #import "ICPCColors.h"
 
@@ -32,3 +36,6 @@ typedef NS_ENUM( NSUInteger, MonitorType ) {
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif
+

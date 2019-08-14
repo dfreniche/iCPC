@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kaY-gr-K8V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kaY-gr-K8V">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,21 +60,22 @@
                         <viewLayoutGuide key="safeArea" id="rTP-5g-DHo"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="tD0-gA-ygY"/>
                                 <exclude reference="1qU-vV-Xfx"/>
                                 <exclude reference="OaG-eC-t2q"/>
-                                <exclude reference="tD0-gA-ygY"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
+                                <include reference="tD0-gA-ygY"/>
                                 <include reference="1qU-vV-Xfx"/>
                                 <include reference="OaG-eC-t2q"/>
-                                <include reference="tD0-gA-ygY"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="cpcScreen" destination="m8t-57-yXZ" id="Zio-Bv-JbH"/>
+                        <outlet property="iCPCKeyboardChildViewController" destination="dts-pW-6fs" id="Ak5-zU-X3e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WSf-xw-jzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,7 +151,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRJ-Gy-YMg">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRJ-Gy-YMg" customClass="KeyReaderTextField">
                                 <rect key="frame" x="100" y="66" width="209" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -159,6 +160,7 @@
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Fhq-qK-fc6"/>
                     </view>
                     <connections>
                         <outlet property="hiddenTextField" destination="jRJ-Gy-YMg" id="3Af-wV-6U3"/>
