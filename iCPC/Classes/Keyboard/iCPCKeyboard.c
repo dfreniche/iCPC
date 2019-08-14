@@ -21,7 +21,6 @@ u8 bit_values[8] = {
 void DispScanCode(CPC_SCANCODE n, int status);
 
 
-u16 *kbdBuffer;
 int shifted=0;
 int ctrled=0;
 int copyed=0;
@@ -272,55 +271,7 @@ void PressKey(CPC_KEY n)
 }
 
 
-// 1: active
-// 2: on
-// 0: off
 
-void Dispkey(CPC_KEY n, int status)
-{
-#ifndef USE_CONSOLE
-    int x,y;
-    u16 color;
-    
-    
-    if ((status&16)!=16) {
-        if ((keymap[n].normal==CPC_SHIFT) || (keymap[n].normal==CPC_CONTROL) || (keymap[n].normal==CPC_COPY)) {
-            return;
-        }
-    }
-    
-    switch(status) {
-        case 0:
-        case 16:
-            for(y=keypos[n].top;y<keypos[n].bottom;y++) {
-                for(x=keypos[n].left;x<keypos[n].right;x++) {
-                    backBuffer[x+y*256]=kbdBuffer[x+y*256];
-                }
-            }
-            break;
-        case 17:
-        case 1:
-            color=RGB15(15,0,0);
-            for(y=keypos[n].top;y<keypos[n].bottom;y++) {
-                for(x=keypos[n].left;x<keypos[n].right;x++) {
-                    backBuffer[x+y*256]=AlphaBlendFast(kbdBuffer[x+y*256], color);
-                }
-            }
-            cpckeypressed[n]=2;
-            break;
-        case 2:
-        case 18:
-            color=RGB15(0,15,0);
-            for(y=keypos[n].top;y<keypos[n].bottom;y++) {
-                for(x=keypos[n].left;x<keypos[n].right;x++) {
-                    backBuffer[x+y*256]=~kbdBuffer[x+y*256]|0x8000;
-                    // backBuffer[x+y*256]=AlphaBlendFast(kbdBuffer[x+y*256], color);
-                }
-            }
-            break;
-    }
-#endif
-}
 
 
 void CPC_SetScanCode(CPC_SCANCODE cpc_scancode)

@@ -45,6 +45,7 @@ int usestylus=0, usestylusauto=1;
 int usemagnum=0;
 
 u16 BG_PALETTE[32];
+u16 *kbdBuffer;
 
 static int hack_tabcoul=0;
 
@@ -1432,7 +1433,9 @@ void nds_init(void)
     SetIRQZ80 = SetIRQZ80_asm2;
 #endif
 
-    strcpy(currentfile,"nofile");	
+    strcpy(currentfile,"nofile");
+    
+//    kbdBuffer = malloc(16536);
 }
 
 void Autoexec(void)
@@ -1588,6 +1591,57 @@ void ResetCPC(void)
 
     Reset8912();
 }
+
+// 1: active
+// 2: on
+// 0: off
+
+void Dispkey(CPC_KEY n, int status)
+{
+    #ifndef USE_CONSOLE
+        int x,y;
+        u16 color;
+    
+    
+        if ((status&16)!=16) {
+            if ((keymap[n].normal==CPC_SHIFT) || (keymap[n].normal==CPC_CONTROL) || (keymap[n].normal==CPC_COPY)) {
+                return;
+            }
+        }
+    
+        switch(status) {
+            case 0:
+            case 16:
+                for(y=keypos[n].top;y<keypos[n].bottom;y++) {
+                    for(x=keypos[n].left;x<keypos[n].right;x++) {
+                        backBuffer[x+y*256]=kbdBuffer[x+y*256];
+                    }
+                }
+                break;
+            case 17:
+            case 1:
+                color=RGB15(15,0,0);
+                for(y=keypos[n].top;y<keypos[n].bottom;y++) {
+                    for(x=keypos[n].left;x<keypos[n].right;x++) {
+                        backBuffer[x+y*256]=AlphaBlendFast(kbdBuffer[x+y*256], color);
+                    }
+                }
+                cpckeypressed[n]=2;
+                break;
+            case 2:
+            case 18:
+                color=RGB15(0,15,0);
+                for(y=keypos[n].top;y<keypos[n].bottom;y++) {
+                    for(x=keypos[n].left;x<keypos[n].right;x++) {
+                        backBuffer[x+y*256]=~kbdBuffer[x+y*256]|0x8000;
+                        // backBuffer[x+y*256]=AlphaBlendFast(kbdBuffer[x+y*256], color);
+                    }
+                }
+                break;
+        }
+    #endif
+}
+
 
 void cpcprint(int x, int y, char *pchStr, u8 bColor)
 {
