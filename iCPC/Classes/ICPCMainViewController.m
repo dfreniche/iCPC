@@ -1,10 +1,3 @@
-//
-//  AboutViewController.m
-//
-//  Created by Miguel Vanhove on 31/10/10.
-//  Copyright 2010 Kyuran. All rights reserved.
-//
-
 #import "ICPCAppDelegate.h"
 #import "ICPCMainViewController.h"
 #include <QuartzCore/CADisplayLink.h>

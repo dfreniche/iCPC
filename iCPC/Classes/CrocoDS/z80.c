@@ -1,17 +1,4 @@
-/******************************************************************************/
-/* Configuration pour l'archivage des différents éléments du fichier source   */
-/******************************************************************************/
-// !CONFIG!=/L/* /R/* /W"* Nom : "
-// Définition du système       !CONFIG!=/V1!EMULATEUR CPC!
-// Définition du sous système  !CONFIG!=/V2!PC-CPC!
-// Définition du sous ensemble !CONFIG!=/V3!Chips!
-// Définition du module        !CONFIG!=/V4!CPU Z80!
-/******************************************************************************/
-
-/********************************************************* !NAME! **************
-* !./FLE!
-********************************************************** !PATHS! *************
-* !./V1!\!./V2!\!./V3!\Fichiers
+/*
 ********************************************************** !0! *****************
 * ------------------------------------------------------------------------------
 *          SYSTEME         |      SOUS SYSTEME       |      SOUS ENSEMBLE
@@ -20,84 +7,9 @@
 * ------------------------------------------------------------------------------
 *  Fichier     : Z80.C                 | Version : 0.1am
 * ------------------------------------------------------------------------------
-*  Date        : 05/11/2002            | Auteur  : L.DEPLANQUE
 * ------------------------------------------------------------------------------
 *  Description : Emulation des instructions du Z80
-*
-* ------------------------------------------------------------------------------
-*  Historique  :
-*           Date           |         Auteur          |       Description
-* ------------------------------------------------------------------------------
-*  05/11/2002              | L.DEPLANQUE             | creation
-* ------------------------------------------------------------------------------
-*  13/11/2002              | L.DEPLANQUE             | Optimisation PEEK16() et
-*                          |                         | POKE16(), ajout #defines
-*                          |                         | USE_16_BIT, FAST_16_BIT.
-*                          |                         | Optimisation LDIR et LDDR
-* ------------------------------------------------------------------------------
-*  14/11/2002              | L.DEPLANQUE             | Optimisation CPIR et CPDR
-* ------------------------------------------------------------------------------
-*  20/02/2003              | L.DEPLANQUE             | Version 0.1w :
-*                          |                         | Optimisation PEEK et POKE
-*                          |                         | Dépendant de VC++
-* ------------------------------------------------------------------------------
-*  21/01/2004              | L.DEPLANQUE             | Version 0.1x :
-*                          |                         | Gestion nouvelles
-*                          |                         | routines disc
-* ------------------------------------------------------------------------------
-*  30/03/2004              | L.DEPLANQUE             | Version 0.1z :
-*                          |                         | Optimisations fonctions
-*                          |                         | émulation Z80 : retour
-*                          |                         | du nombre de cycles
-*                          |                         | plutôt que incrément
-*                          |                         | variable globale
-* ------------------------------------------------------------------------------
-*  21/04/2004              | L.DEPLANQUE             | Version 0.1aa :
-*                          |                         | Correction des temps de
-*                          |                         | cycle des instructions
-*                          |                         | après préfixe DD et FD
-*                          |                         | (sur registres IX et IY)
-*                          |                         | Suppression du #define
-*                          |                         | USE_16_BIT, car toujours
-*                          |                         | utilisé maintenant.
-* ------------------------------------------------------------------------------
-*  06/08/2004              | L.DEPLANQUE             | Version 0.1ab :
-*                          |                         | Ajout des instructions
-*                          |                         | NEG aux OPCODES ED_4C,
-*                          |                         | ED_54, ED_5C, ED_64,
-*                          |                         | ED_6C, ED_74, ED_7C
-* ------------------------------------------------------------------------------
-*  11/12/2004              | L.DEPLANQUE             | Version 0.1ae :
-*                          |                         | Ajout des instructions
-*                          |                         | ED_01 à ED_07 pour
-*                          |                         | gestion rom extension
-*                          |                         | compactage/décompactage
-* ------------------------------------------------------------------------------
-*  27/11/2005              | L.DEPLANQUE             | Version 0.1ah :
-*                          |                         | Ajout instruction ED_08
-*                          |                         | (pour rompack)
-* ------------------------------------------------------------------------------
-*  18/12/2005              | L.DEPLANQUE             | Version 0.1aj :
-*                          |                         | Ajout instruction ED_09
-*                          |                         | (pour rompack)
-* ------------------------------------------------------------------------------
-*  16/02/2006              | L.DEPLANQUE             | Version 0.1ak :
-*                          |                         | Ajout instruction ED_0A
-*                          |                         | (pour rompack)
-* ------------------------------------------------------------------------------
-*  20/07/2006              | L.DEPLANQUE             | Version 0.1al :
-*                          |                         | Ajout instruction ED_0B
-*                          |                         | à ED_16 (pour rompack),
-*                          |                         | ajout instructions DD_FD
-*                          |                         | et FD_DD
-* ------------------------------------------------------------------------------
-*  05/09/2006              | L.DEPLANQUE             | Version 0.1am :
-*                          |                         | Ajout instruction ED_17
-*                          |                         | à ED_1A (pour rompack),
-*                          |                         | Correction timings
-*                          |                         | instructions.
-* ------------------------------------------------------------------------------
-********************************************************** !END! **************/
+*/
 
 
 #include  "nds.h"

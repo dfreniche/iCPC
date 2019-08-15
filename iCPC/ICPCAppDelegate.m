@@ -12,6 +12,9 @@
 @implementation ICPCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // We Start using iCPC.storyboard
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:nil];
     
     [ICPCFileManager copyAllDSKFilesToDocumentDirectory];

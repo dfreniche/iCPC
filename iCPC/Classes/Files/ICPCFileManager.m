@@ -10,6 +10,8 @@
 
 @implementation ICPCFileManager
 
+/* copyAllDSKFilesToDocumentDirectory: copies all DSKs bundled with the app to user Document directory
+*/
 + (void)copyAllDSKFilesToDocumentDirectory {
     
     if ([ICPCConfig sharedInstance].dskDemosAlreadyCopied) {
