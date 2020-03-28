@@ -538,4 +538,9 @@ GCController *myController;
     [m_oglView addSubview:key_start];
 }
 
+- (IBAction)resetButtonTapped:(id)sender {
+    
+    ResetCPC();
+}
+
 @end
