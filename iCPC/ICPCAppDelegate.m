@@ -13,10 +13,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // We Start using iCPC.storyboard
+    // We start the using iCPC.storyboard as Main Interface
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:nil];
     
+    // on startup we copy all bundled demo DSK files to the app doc directory
     [ICPCFileManager copyAllDSKFilesToDocumentDirectory];
     
     return YES;

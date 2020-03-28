@@ -13,12 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
--(instancetype)init __attribute__((unavailable("init not available, call sharedInstance instead")));
+- (instancetype)init __attribute__((unavailable("init not available, call sharedInstance instead")));
 
 @property (nonatomic, assign) bool useIcade;
 @property (nonatomic, assign) bool useFling;
 @property (nonatomic, assign) bool useExternalKeyboard;
 @property (nonatomic, assign) bool dskDemosAlreadyCopied;
+
+- (void)setDskDemosAlreadyCopied:(bool)dskDemosAlreadyCopied;
 
 @end
 

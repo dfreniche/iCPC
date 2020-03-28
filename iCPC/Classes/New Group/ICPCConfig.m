@@ -19,15 +19,14 @@
     static dispatch_once_t once;
     static id sharedInstance;
     
-    dispatch_once(&once, ^
-                  {
-                      sharedInstance = [[ICPCConfig alloc] initUniqueInstance];
-                      [sharedInstance loadSettings];
-                  });
+    dispatch_once(&once, ^{
+        sharedInstance = [[ICPCConfig alloc] initUniqueInstance];
+        [sharedInstance loadSettings];
+    });
     return sharedInstance;
 }
 
--(instancetype)initUniqueInstance {
+- (instancetype)initUniqueInstance {
     
     return [super init];
 }
@@ -59,6 +58,7 @@
 }
     
 - (void)setDskDemosAlreadyCopied:(bool)dskDemosAlreadyCopied {
+    
     _dskDemosAlreadyCopied = dskDemosAlreadyCopied;
     [self saveSetting:dskDemosAlreadyCopied forKey:@"dskDemosAlreadyCopied"];
 }

@@ -10,7 +10,8 @@
 
 @implementation ICPCFileManager
 
-/* copyAllDSKFilesToDocumentDirectory: copies all DSKs bundled with the app to user Document directory
+/* Copies all DSKs bundled with the app to user Document directory
+ *  on startup we copy all bundled demo DSK files to the app doc directory
 */
 + (void)copyAllDSKFilesToDocumentDirectory {
     
@@ -32,6 +33,10 @@
     [[ICPCConfig sharedInstance] setDskDemosAlreadyCopied:true];
 }
 
+/**
+ loads a .BIN file
+ @return: file contents as NSData *
+ */
 + (NSData *)loadBinFile:(NSString *)named {
     
     NSData *loaded = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:named ofType:@"bin"]];

@@ -18,6 +18,7 @@
 - (void)fileSelected:(NSString *)fileName shouldAutoStart:(BOOL)autoStart shouldReboot:(BOOL)reboot {
     
     NSString* extension = [[fileName pathExtension] lowercaseString];
+    
     if ([extension isEqualToString:@"sna"]) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *fullFile = [(NSString *)[paths objectAtIndex:0] stringByAppendingPathComponent:fileName];
@@ -25,6 +26,7 @@
         NSData *rom=[[NSData alloc] initWithContentsOfFile:fullFile];
         LireSnapshotMem((u8*)[rom bytes]);
     }
+    
     if ([extension isEqualToString:@"dsk"]) {
         char autofile[256];
         
