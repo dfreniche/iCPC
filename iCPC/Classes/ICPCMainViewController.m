@@ -17,7 +17,6 @@
 #import "MyCatalog.h"
 
 #import <GameController/GameController.h>
-#import "ICPCKeyboardViewController.h"
     
 #define RAYON 20
 
@@ -70,8 +69,7 @@ GCController *myController;
     [self setupButtonsInCPCView];
     [self setupGameControllers];
     
-    ICPCKeyboardViewController *keyboardViewController = (ICPCKeyboardViewController *)[[self childViewControllers] firstObject];
-    [keyboardViewController hideSystemKeyboard];
+    [[self keyboardController] hideSystemKeyboard];
 }
 
 - (void)viewDidUnload {
@@ -80,7 +78,13 @@ GCController *myController;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:GCControllerDidConnectNotification object:nil];
 
 }
+
+- (ICPCKeyboardViewController *)keyboardController {
     
+    ICPCKeyboardViewController *keyboardViewController = (ICPCKeyboardViewController *)[[self childViewControllers] firstObject];
+    return keyboardViewController;
+}
+
 - (void)setupGameControllers {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupFoundController) name:GCControllerDidConnectNotification object:nil];
     

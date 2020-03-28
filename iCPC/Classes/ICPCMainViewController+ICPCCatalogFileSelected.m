@@ -42,6 +42,8 @@
             AutoType_SetString(buffer, reboot);
         }
     }
+    
+    [[self keyboardController] focus];
 }
 
     

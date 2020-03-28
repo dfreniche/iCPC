@@ -27,6 +27,11 @@
     [self.hiddenTextField becomeFirstResponder];
 }
 
+- (void)focus {
+    
+    [self.hiddenTextField becomeFirstResponder];
+}
+
 - (BOOL)textField:(UITextField *)textField
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string {

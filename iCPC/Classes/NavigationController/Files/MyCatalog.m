@@ -297,7 +297,7 @@
     NSString *fileName=[_currentEntries objectAtIndex:row];
    
     [self closeViewControllerWithCompletion:^{
-         [self.delegate fileSelected:fileName shouldAutoStart:autoStart shouldReboot:rebootWhenStart];
+        [self.delegate fileSelected:fileName shouldAutoStart:self->autoStart shouldReboot:self->rebootWhenStart];
     }];
 }
 
