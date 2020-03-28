@@ -1,19 +1,23 @@
-iCPC
-=======
+# iCPC
 
-Amstrad emulator for iPhone/iPad.
+## What is this?
 
-Based on CrocoDS by Miguel Vanhove
-Based on Win-CPC by Ludovic Deplanque.
+iCPC is an Amstrad emulator for iPhone/iPad.
 
-How to use ?
-============
+- Based on CrocoDS by Miguel Vanhove
+- Based on Win-CPC by Ludovic Deplanque.
 
-Open the .xcode file and run it to your iPhone/iPad :)
-Image disks (.dsk) have to be send via iTunes
+## How to use ?
 
-License
-=======
+Due to restrictions in the App Store distribution guidelines, this program will never be available via regular app store download. So the only way to enjoy it is to download the source code and install it in your own device. 
+
+- you'll need a Mac computer, running macOS 10.14 (or later)
+- you need to install Xcode. Using Xcode 11.3.1 for this project. To install, download Xcode from the Mac App Store.
+- once Xcode is installed, you'll need to download the source code for this project. You can do it using `git` from a Terminal or downloading a ZIP file with the latest version of the source code.
+- Open the `.xcode` file and run it to your iPhone/iPad :)
+- Image disks (.dsk) have to be send via iTunes
+
+## License
 
 iCPC Copyright (c) 2019 Diego Freniche
 
@@ -25,8 +29,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public 
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
 
-Copyright
-=========
+## Copyright
+
 This Project is based upon the following work:
 
 - [Win-CPC](http://demoniak-contrib.forumactif.com "Win-CPC"): Amstrad CPC Emulator - Copyright 2012 Ludovic Deplanque.
